@@ -107,16 +107,6 @@ export default function ProfilePage() {
             </div>
           </div>
         </div>
-
-        {/* Minhas Paletas - DESABILITADO PARA PRODUÇÃO
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Minhas Paletas</h2>
-          <div className="text-center py-12">
-            <PaletteIcon className="w-16 h-16 text-gray-300 dark:text-white/20 mx-auto mb-4" />
-            <p className="text-gray-600 dark:text-white/60">Em breve você poderá salvar suas paletas favoritas!</p>
-          </div>
-        </div>
-        */}
       </main>
     </div>
   );
