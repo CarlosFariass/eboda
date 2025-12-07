@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Sparkles, Download, Save, Palette, Heart } from 'lucide-react';
+import { Sparkles, Download, Palette } from 'lucide-react';
 import LoadingScreen from '@/components/LoadingScreen';
 import PaletteViewer from '@/components/PaletteViewer';
 import ColorSplash from '@/components/ColorSplash';
@@ -9,7 +9,6 @@ import ExportModal from '@/components/ExportModal';
 import FavoritesModal from '@/components/FavoritesModal';
 import Link from 'next/link';
 
-// Default color palette
 const DEFAULT_COLORS = [
   '#9333EA', '#EC4899', '#F59E0B', '#10B981', '#3B82F6', 
   '#8B5CF6', '#EF4444', '#06B6D4'
@@ -27,13 +26,9 @@ export default function App() {
     <>
       {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
       
-      <div className="min-h-screen bg-[#fafafa] dark:bg-[#060010]">
-        {/* Header e Footer agora são renderizados pelo layout.js global */}
-        
+      <div className="min-h-screen bg-[#fafafa] dark:bg-[#060010]">        
         <main className="container mx-auto px-4 py-12">
-          {/* Main Palette Section */}
           <div className="flex flex-col items-center justify-center min-h-[60vh] gap-12">
-            {/* Title */}
             <div className="text-center space-y-4">
               <h2 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r 
                 from-gray-700 via-gray-800 to-gray-900
@@ -47,32 +42,10 @@ export default function App() {
               </p>
             </div>
 
-            {/* Palette Viewer - NOVO COMPONENTE */}
             <PaletteViewer
               colors={colors}
               onColorClick={(color) => setSelectedColor(color)}
             />
-
-            {/* <div className="flex flex-wrap items-center justify-center gap-4">
-              <Button
-                onClick={handleExport}
-                variant="outline"
-                className="flex items-center gap-2 px-6 py-3 border-white/20 text-black dark:text-white/60 hover:bg-white/10"
-              >
-                <Download className="w-5 h-5" />
-                Exportar
-              </Button>
-              <Button
-                onClick={() => setShowFavoritesModal(true)}
-                disabled={!user}
-                variant="outline"
-                className="flex items-center gap-2 px-6 py-3 border-white/20 text-white hover:bg-white/10 disabled:opacity-50"
-                title={user ? 'Ver favoritos' : 'Faça login para ver favoritos'}
-              >
-                <Heart className="w-5 h-5" />
-                Favoritos
-              </Button>
-            </div> */}
           </div>
 
           <div className="mt-24 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">

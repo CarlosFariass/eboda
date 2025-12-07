@@ -3,6 +3,8 @@ import { ThemeProvider } from 'next-themes';
 import './globals.css';
 import HeaderWrapper from '@/components/HeaderWrapper';
 import Footer from '@/components/Footer';
+import { Analytics } from "@vercel/analytics/next"
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,6 +25,7 @@ export default function RootLayout({ children }) {
           </main>
           <Footer />
         </ThemeProvider>
+        <Analytics/>
       </body>
     </html>
   );
