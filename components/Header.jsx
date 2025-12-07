@@ -20,7 +20,6 @@ const Header = ({ user, onLogin, onLogout }) => {
     setToolsDropdownOpen(false);
   };
 
-  // Determina se é light mode
   const isLightMode = mounted && theme === 'light';
 
   return (

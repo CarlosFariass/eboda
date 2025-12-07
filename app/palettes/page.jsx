@@ -168,11 +168,11 @@ export default function PalettesPage() {
     <div className="min-h-screen bg-[#fafafa] dark:bg-[#060010]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Cabeçalho */}
-        <div className="mb-12">
+        <div className="mb-12 text-center">
           <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r  from-gray-700 via-gray-800 to-gray-900 dark:from-purple-400 dark:via-pink-500 dark:to-purple-600 mb-4">
             Descobrir Paletas
           </h1>
-          <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+          <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto" />
           <p className="text-black dark:text-white/60 text-lg mt-4">
             Explore milhares de paletas de cores criadas pela comunidade
           </p>

@@ -4,13 +4,18 @@ import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 
 export default function LegalLayout({ title, content }) {
+  // Função para remover o primeiro H1 do conteúdo
+  const removeFirstH1 = (content) => {
+    return content.replace(/^#\s+.*$/m, '').trim();
+  };
+
   return (
     <div className="min-h-screen bg-[#fafafa] dark:bg-[#060010]">
       {/* Conteúdo Principal */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Título da Página */}
         <div className="mb-12">
-          <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r  from-gray-700 via-gray-800 to-gray-900 dark:from-purple-400 dark:via-pink-500 dark:to-purple-600 mb-4">
+          <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 dark:from-purple-400 dark:via-pink-500 dark:to-purple-600 mb-4">
             {title}
           </h1>
           <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
@@ -104,7 +109,7 @@ export default function LegalLayout({ title, content }) {
               ),
             }}
           >
-            {content}
+            {removeFirstH1(content)}
           </Markdown>
         </div>
       </div>

@@ -15,16 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          {/* Header Global com Autenticação */}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <HeaderWrapper />
           
-          {/* Conteúdo Principal */}
           <main>
             {children}
           </main>
-          
-          {/* Footer Global */}
           <Footer />
         </ThemeProvider>
       </body>

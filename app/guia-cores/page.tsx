@@ -13,11 +13,12 @@ export default function GuiaCoresPage() {
       <div className="max-w-4xl mx-auto">
         
         {/* Header */}
-        <header className="text-center mb-16">
+        <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-900 dark:from-purple-400 dark:to-pink-500">
             Guia de Cores
           </h1>
-          <p className="text-lg text-gray-600 dark:text-white/60 max-w-2xl mx-auto">
+          <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto" />
+          <p className="text-black dark:text-white/60 text-lg mt-4">
             Domine a teoria das cores e transforme seus projetos com paletas harmoniosas e impactantes
           </p>
           <div className="w-24 h-1 mx-auto mt-6 rounded-full bg-gradient-to-r from-gray-400 to-gray-600 dark:from-purple-500 dark:to-pink-500" />
@@ -503,8 +504,7 @@ export default function GuiaCoresPage() {
           </div>
         </section>
 
-        {/* Seção 8: Ferramentas */}
-        <section id="ferramentas" className="mb-16">
+        <section id="ferramentas" className="mb-8">
           <h2 className="mt-6 text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-6">
             8. Ferramentas Úteis
           </h2>
@@ -516,10 +516,10 @@ export default function GuiaCoresPage() {
             <div className="grid md:grid-cols-2 gap-4 mt-8">
               <Link 
                 href="/tools#color-wheel"
-                className="group p-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl hover:border-purple-500 dark:hover:border-purple-500 transition-all"
+                className="group p-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl hover:border-black dark:hover:border-black transition-all"
               >
                 <div className="text-3xl mb-3">🎨</div>
-                <h4 className="font-bold text-gray-800 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                <h4 className="font-bold text-gray-800 dark:text-white group-hover:text-black dark:group-hover:text-black transition-colors">
                   Color Wheel
                 </h4>
                 <p className="text-sm text-gray-600 dark:text-white/60 mt-2">
@@ -529,10 +529,10 @@ export default function GuiaCoresPage() {
 
               <Link 
                 href="/tools#image-picker"
-                className="group p-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl hover:border-purple-500 dark:hover:border-purple-500 transition-all"
+                className="group p-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl hover:border-black dark:hover:border-black transition-all"
               >
                 <div className="text-3xl mb-3">🖼️</div>
-                <h4 className="font-bold text-gray-800 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                <h4 className="font-bold text-gray-800 dark:text-white group-hover:text-black dark:group-hover:text-black transition-colors">
                   Image Color Picker
                 </h4>
                 <p className="text-sm text-gray-600 dark:text-white/60 mt-2">
@@ -542,10 +542,10 @@ export default function GuiaCoresPage() {
 
               <Link 
                 href="/tools/contrast-checker"
-                className="group p-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl hover:border-purple-500 dark:hover:border-purple-500 transition-all"
+                className="group p-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl hover:border-black dark:hover:border-black transition-all"
               >
                 <div className="text-3xl mb-3">🔍</div>
-                <h4 className="font-bold text-gray-800 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                <h4 className="font-bold text-gray-800 dark:text-white group-hover:text-black dark:group-hover:text-black transition-colors">
                   Contrast Checker
                 </h4>
                 <p className="text-sm text-gray-600 dark:text-white/60 mt-2">
@@ -555,10 +555,10 @@ export default function GuiaCoresPage() {
 
               <Link 
                 href="/tools/gradient-generator"
-                className="group p-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl hover:border-purple-500 dark:hover:border-purple-500 transition-all"
+                className="group p-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl hover:border-black dark:hover:border-black transition-all"
               >
                 <div className="text-3xl mb-3">🌈</div>
-                <h4 className="font-bold text-gray-800 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                <h4 className="font-bold text-gray-800 dark:text-white group-hover:text-black dark:group-hover:text-black transition-colors">
                   Gradient Generator
                 </h4>
                 <p className="text-sm text-gray-600 dark:text-white/60 mt-2">
@@ -569,8 +569,7 @@ export default function GuiaCoresPage() {
           </div>
         </section>
 
-        {/* CTA Final */}
-        <section className="text-center p-8 bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 border border-purple-200 dark:border-purple-500/30 rounded-2xl">
+        <section className="text-center p-8 bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 border border-purple-200 dark:border-purple-500/30 rounded-2xl mt-8">
           <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
             Pronto para criar suas paletas?
           </h3>

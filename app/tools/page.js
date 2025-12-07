@@ -39,7 +39,7 @@ export default function ToolsPage() {
           <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r  from-gray-700 via-gray-800 to-gray-900 dark:from-purple-400 dark:via-pink-500 dark:to-purple-600">
             Ferramentas de Cores
           </h1>
-          <p className="text-gray-600 dark:text-white/60 text-lg">
+          <p className="text-black dark:text-white/60 text-lg mt-4">
             Explore cores com a roda de cores interativa ou extraia cores de suas imagens
           </p>
         </div>
