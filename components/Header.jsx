@@ -246,6 +246,13 @@ const Header = ({ user, onLogin, onLogout }) => {
               >
                 Paletas
               </Link>
+              <Link
+                href="/guia-cores"
+                onClick={handleNavClick}
+                className="block px-3 py-2 rounded-lg text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+              >
+                Guia cores
+              </Link>
               
               {/* Sobre - Mobile Only (hidden in footer on mobile) */}
               <Link

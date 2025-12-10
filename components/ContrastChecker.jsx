@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Check, X, AlertTriangle, RefreshCw, Copy, Lightbulb } from 'lucide-react';
+import { Check, X, RefreshCw, Copy, Lightbulb } from 'lucide-react';
 
 // Função para calcular luminância relativa
 const getLuminance = (r, g, b) => {
@@ -135,24 +135,24 @@ export default function ContrastChecker() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-sm">
-      <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+    <div className="min-h-screen p-3 sm:p-4 lg:p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-sm">
+      <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-2">
         🎯 Contrast Checker
       </h2>
-      <p className="text-gray-600 dark:text-white/60 mb-6">
+      <p className="text-sm sm:text-base text-gray-600 dark:text-white/60 mb-4 sm:mb-6">
         Verifique se suas cores atendem aos padrões WCAG de acessibilidade
       </p>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
         {/* Color Inputs */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* Text Color */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
               Cor do Texto
             </label>
-            <div className="flex gap-3">
-              <div className="relative">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+              <div className="relative flex justify-center sm:justify-start">
                 <input
                   type="color"
                   value={textColor}
@@ -160,19 +160,21 @@ export default function ContrastChecker() {
                   className="w-16 h-12 rounded-lg cursor-pointer border-2 border-gray-200 dark:border-white/20"
                 />
               </div>
-              <input
-                type="text"
-                value={textColor}
-                onChange={(e) => setTextColor(e.target.value)}
-                className="flex-1 px-4 py-2 rounded-lg bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white font-mono uppercase"
-                placeholder="#000000"
-              />
-              <button
-                onClick={() => copyToClipboard(textColor, 'text')}
-                className="p-3 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
-              >
-                {copied === 'text' ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 text-gray-500 dark:text-white/60" />}
-              </button>
+              <div className="flex gap-2 flex-1">
+                <input
+                  type="text"
+                  value={textColor}
+                  onChange={(e) => setTextColor(e.target.value)}
+                  className="flex-1 px-3 py-2 sm:px-4 sm:py-2 rounded-lg bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white font-mono text-sm sm:text-base uppercase"
+                  placeholder="#000000"
+                />
+                <button
+                  onClick={() => copyToClipboard(textColor, 'text')}
+                  className="p-2 sm:p-3 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors flex-shrink-0"
+                >
+                  {copied === 'text' ? <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" /> : <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500 dark:text-white/60" />}
+                </button>
+              </div>
             </div>
           </div>
 
@@ -188,12 +190,12 @@ export default function ContrastChecker() {
           </div>
 
           {/* Background Color */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
               Cor do Fundo
             </label>
-            <div className="flex gap-3">
-              <div className="relative">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+              <div className="relative flex justify-center sm:justify-start">
                 <input
                   type="color"
                   value={bgColor}
@@ -201,95 +203,97 @@ export default function ContrastChecker() {
                   className="w-16 h-12 rounded-lg cursor-pointer border-2 border-gray-200 dark:border-white/20"
                 />
               </div>
-              <input
-                type="text"
-                value={bgColor}
-                onChange={(e) => setBgColor(e.target.value)}
-                className="flex-1 px-4 py-2 rounded-lg bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white font-mono uppercase"
-                placeholder="#FFFFFF"
-              />
-              <button
-                onClick={() => copyToClipboard(bgColor, 'bg')}
-                className="p-3 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
-              >
-                {copied === 'bg' ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 text-gray-500 dark:text-white/60" />}
-              </button>
+              <div className="flex gap-2 flex-1">
+                <input
+                  type="text"
+                  value={bgColor}
+                  onChange={(e) => setBgColor(e.target.value)}
+                  className="flex-1 px-3 py-2 sm:px-4 sm:py-2 rounded-lg bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white font-mono text-sm sm:text-base uppercase"
+                  placeholder="#FFFFFF"
+                />
+                <button
+                  onClick={() => copyToClipboard(bgColor, 'bg')}
+                  className="p-2 sm:p-3 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors flex-shrink-0"
+                >
+                  {copied === 'bg' ? <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" /> : <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500 dark:text-white/60" />}
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Contrast Score */}
-          <div className={`p-6 rounded-xl border-2 ${getScoreBg()} text-center`}>
-            <p className="text-sm text-gray-600 dark:text-white/60 mb-2">Ratio de Contraste</p>
-            <p className={`text-5xl font-black ${getScoreColor()}`}>
+          <div className={`p-4 sm:p-6 rounded-xl border-2 ${getScoreBg()} text-center`}>
+            <p className="text-xs sm:text-sm text-gray-600 dark:text-white/60 mb-2">Ratio de Contraste</p>
+            <p className={`text-3xl sm:text-5xl font-black ${getScoreColor()}`}>
               {contrastRatio.toFixed(2)}:1
             </p>
           </div>
         </div>
 
         {/* Preview and Results */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* Live Preview */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
               Preview
             </label>
             <div
-              className="p-6 rounded-xl border-2 border-gray-200 dark:border-white/20 transition-all"
+              className="p-4 sm:p-6 rounded-xl border-2 border-gray-200 dark:border-white/20 transition-all"
               style={{ backgroundColor: bgColor }}
             >
-              <p className="text-3xl font-bold mb-2" style={{ color: textColor }}>
+              <p className="text-xl sm:text-3xl font-bold mb-2" style={{ color: textColor }}>
                 Título Grande
               </p>
-              <p className="text-lg mb-2" style={{ color: textColor }}>
+              <p className="text-base sm:text-lg mb-2" style={{ color: textColor }}>
                 Texto em tamanho normal para leitura.
               </p>
-              <p className="text-sm" style={{ color: textColor }}>
+              <p className="text-xs sm:text-sm" style={{ color: textColor }}>
                 Texto pequeno (14px) - mais difícil de ler com baixo contraste.
               </p>
             </div>
           </div>
 
           {/* WCAG Results */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
               Resultados WCAG 2.1
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
               {/* AA Normal */}
-              <div className={`p-4 rounded-lg border ${wcagResults.aaNormal ? 'bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/30' : 'bg-red-50 dark:bg-red-500/10 border-red-200 dark:border-red-500/30'}`}>
+              <div className={`p-3 sm:p-4 rounded-lg border ${wcagResults.aaNormal ? 'bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/30' : 'bg-red-50 dark:bg-red-500/10 border-red-200 dark:border-red-500/30'}`}>
                 <div className="flex items-center gap-2 mb-1">
                   {wcagResults.aaNormal ? <Check className="w-4 h-4 text-green-500" /> : <X className="w-4 h-4 text-red-500" />}
-                  <span className="font-bold text-gray-800 dark:text-white">AA</span>
+                  <span className="font-bold text-gray-800 dark:text-white text-sm sm:text-base">AA</span>
                 </div>
                 <p className="text-xs text-gray-600 dark:text-white/60">Texto Normal</p>
                 <p className="text-xs text-gray-500 dark:text-white/40">≥ 4.5:1</p>
               </div>
 
               {/* AA Large */}
-              <div className={`p-4 rounded-lg border ${wcagResults.aaLarge ? 'bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/30' : 'bg-red-50 dark:bg-red-500/10 border-red-200 dark:border-red-500/30'}`}>
+              <div className={`p-3 sm:p-4 rounded-lg border ${wcagResults.aaLarge ? 'bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/30' : 'bg-red-50 dark:bg-red-500/10 border-red-200 dark:border-red-500/30'}`}>
                 <div className="flex items-center gap-2 mb-1">
                   {wcagResults.aaLarge ? <Check className="w-4 h-4 text-green-500" /> : <X className="w-4 h-4 text-red-500" />}
-                  <span className="font-bold text-gray-800 dark:text-white">AA</span>
+                  <span className="font-bold text-gray-800 dark:text-white text-sm sm:text-base">AA</span>
                 </div>
                 <p className="text-xs text-gray-600 dark:text-white/60">Texto Grande</p>
                 <p className="text-xs text-gray-500 dark:text-white/40">≥ 3:1</p>
               </div>
 
               {/* AAA Normal */}
-              <div className={`p-4 rounded-lg border ${wcagResults.aaaNormal ? 'bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/30' : 'bg-red-50 dark:bg-red-500/10 border-red-200 dark:border-red-500/30'}`}>
+              <div className={`p-3 sm:p-4 rounded-lg border ${wcagResults.aaaNormal ? 'bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/30' : 'bg-red-50 dark:bg-red-500/10 border-red-200 dark:border-red-500/30'}`}>
                 <div className="flex items-center gap-2 mb-1">
                   {wcagResults.aaaNormal ? <Check className="w-4 h-4 text-green-500" /> : <X className="w-4 h-4 text-red-500" />}
-                  <span className="font-bold text-gray-800 dark:text-white">AAA</span>
+                  <span className="font-bold text-gray-800 dark:text-white text-sm sm:text-base">AAA</span>
                 </div>
                 <p className="text-xs text-gray-600 dark:text-white/60">Texto Normal</p>
                 <p className="text-xs text-gray-500 dark:text-white/40">≥ 7:1</p>
               </div>
 
               {/* AAA Large */}
-              <div className={`p-4 rounded-lg border ${wcagResults.aaaLarge ? 'bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/30' : 'bg-red-50 dark:bg-red-500/10 border-red-200 dark:border-red-500/30'}`}>
+              <div className={`p-3 sm:p-4 rounded-lg border ${wcagResults.aaaLarge ? 'bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/30' : 'bg-red-50 dark:bg-red-500/10 border-red-200 dark:border-red-500/30'}`}>
                 <div className="flex items-center gap-2 mb-1">
                   {wcagResults.aaaLarge ? <Check className="w-4 h-4 text-green-500" /> : <X className="w-4 h-4 text-red-500" />}
-                  <span className="font-bold text-gray-800 dark:text-white">AAA</span>
+                  <span className="font-bold text-gray-800 dark:text-white text-sm sm:text-base">AAA</span>
                 </div>
                 <p className="text-xs text-gray-600 dark:text-white/60">Texto Grande</p>
                 <p className="text-xs text-gray-500 dark:text-white/40">≥ 4.5:1</p>
@@ -299,19 +303,19 @@ export default function ContrastChecker() {
 
           {/* Suggestions */}
           {suggestions.length > 0 && (
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               <div className="flex items-center gap-2">
                 <Lightbulb className="w-4 h-4 text-yellow-500" />
                 <label className="text-sm font-medium text-gray-700 dark:text-white/80">
                   Sugestões que passam AAA
                 </label>
               </div>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {suggestions.map((suggestion, index) => (
                   <button
                     key={index}
                     onClick={() => setTextColor(suggestion.hex)}
-                    className="p-3 rounded-lg border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-all group"
+                    className="p-2 sm:p-3 rounded-lg border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-all group"
                   >
                     <div
                       className="w-full h-8 rounded mb-2 border border-gray-200 dark:border-white/10"
