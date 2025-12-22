@@ -1,5 +1,5 @@
 import ColorPageClient from '@/components/ColorPageClient';
-import { POPULAR_COLORS, getColorBySlug } from '../../../lib/popular_colors_data';
+import { POPULAR_COLORS, getColorBySlug } from '@/lib/popular_colors_data';
 import { notFound } from 'next/navigation';
 
 /**
