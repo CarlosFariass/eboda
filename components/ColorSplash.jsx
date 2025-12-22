@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { generateColorPalette } from '@/lib/colors';
 
 const ColorSplash = ({ color, onClose, position }) => {
+  const t = useTranslations('colorSplash');
   const [palette, setPalette] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -36,7 +38,7 @@ const ColorSplash = ({ color, onClose, position }) => {
         }}
       >
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-2xl font-bold text-white">Combinações de Cores</h3>
+          <h3 className="text-2xl font-bold text-white">{t('title')}</h3>
           <button
             onClick={onClose}
             className="p-2 hover:bg-white/10 rounded-lg transition-colors"
@@ -48,7 +50,7 @@ const ColorSplash = ({ color, onClose, position }) => {
         <div className="space-y-6">
           {/* Base Color */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3">Cor Base</h4>
+            <h4 className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3">{t('baseColor')}</h4>
             <div className="flex items-center gap-3">
               <div 
                 className="w-16 h-16 rounded-lg shadow-lg"
@@ -60,7 +62,7 @@ const ColorSplash = ({ color, onClose, position }) => {
 
           {/* Complementary */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3">Complementar</h4>
+            <h4 className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3">{t('complementary')}</h4>
             <div className="flex items-center gap-3">
               <div 
                 className="w-16 h-16 rounded-lg shadow-lg"
@@ -72,7 +74,7 @@ const ColorSplash = ({ color, onClose, position }) => {
 
           {/* Analogous */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3">Análogas</h4>
+            <h4 className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3">{t('analogous')}</h4>
             <div className="flex gap-2">
               {palette.analogous.map((c, i) => (
                 <div key={i} className="flex flex-col items-center gap-2">
@@ -88,7 +90,7 @@ const ColorSplash = ({ color, onClose, position }) => {
 
           {/* Triadic */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3">Tríade</h4>
+            <h4 className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3">{t('triadic')}</h4>
             <div className="flex gap-2">
               {palette.triadic.map((c, i) => (
                 <div key={i} className="flex flex-col items-center gap-2">
@@ -104,7 +106,7 @@ const ColorSplash = ({ color, onClose, position }) => {
 
           {/* Shades */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3">Variações</h4>
+            <h4 className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3">{t('shades')}</h4>
             <div className="flex gap-2">
               {palette.shades.map((c, i) => (
                 <div 

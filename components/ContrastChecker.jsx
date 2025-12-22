@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Check, X, RefreshCw, Copy, Lightbulb } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 // Função para calcular luminância relativa
 const getLuminance = (r, g, b) => {
@@ -80,6 +81,7 @@ const generateSuggestions = (bgColor, targetRatio) => {
 };
 
 export default function ContrastChecker() {
+  const t = useTranslations('contrastChecker');
   const [textColor, setTextColor] = useState('#000000');
   const [bgColor, setBgColor] = useState('#FFFFFF');
   const [contrastRatio, setContrastRatio] = useState(21);
@@ -137,10 +139,10 @@ export default function ContrastChecker() {
   return (
     <div className="min-h-screen p-3 sm:p-4 lg:p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-sm">
       <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-2">
-        🎯 Contrast Checker
+        {t('title')}
       </h2>
       <p className="text-sm sm:text-base text-gray-600 dark:text-white/60 mb-4 sm:mb-6">
-        Verifique se suas cores atendem aos padrões WCAG de acessibilidade
+        {t('description')}
       </p>
 
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
@@ -149,7 +151,7 @@ export default function ContrastChecker() {
           {/* Text Color */}
           <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
-              Cor do Texto
+              {t('textColor')}
             </label>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
               <div className="relative flex justify-center sm:justify-start">
@@ -183,7 +185,7 @@ export default function ContrastChecker() {
             <button
               onClick={swapColors}
               className="p-3 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-all hover:rotate-180 duration-300"
-              title="Inverter cores"
+              title={t('swapColors')}
             >
               <RefreshCw className="w-5 h-5 text-gray-600 dark:text-white/60" />
             </button>
@@ -192,7 +194,7 @@ export default function ContrastChecker() {
           {/* Background Color */}
           <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
-              Cor do Fundo
+              {t('backgroundColor')}
             </label>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
               <div className="relative flex justify-center sm:justify-start">
@@ -223,7 +225,7 @@ export default function ContrastChecker() {
 
           {/* Contrast Score */}
           <div className={`p-4 sm:p-6 rounded-xl border-2 ${getScoreBg()} text-center`}>
-            <p className="text-xs sm:text-sm text-gray-600 dark:text-white/60 mb-2">Ratio de Contraste</p>
+            <p className="text-xs sm:text-sm text-gray-600 dark:text-white/60 mb-2">{t('contrastRatio')}</p>
             <p className={`text-3xl sm:text-5xl font-black ${getScoreColor()}`}>
               {contrastRatio.toFixed(2)}:1
             </p>
@@ -235,20 +237,20 @@ export default function ContrastChecker() {
           {/* Live Preview */}
           <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
-              Preview
+              {t('preview')}
             </label>
             <div
               className="p-4 sm:p-6 rounded-xl border-2 border-gray-200 dark:border-white/20 transition-all"
               style={{ backgroundColor: bgColor }}
             >
               <p className="text-xl sm:text-3xl font-bold mb-2" style={{ color: textColor }}>
-                Título Grande
+                {t('largeTitle')}
               </p>
               <p className="text-base sm:text-lg mb-2" style={{ color: textColor }}>
-                Texto em tamanho normal para leitura.
+                {t('normalText')}
               </p>
               <p className="text-xs sm:text-sm" style={{ color: textColor }}>
-                Texto pequeno (14px) - mais difícil de ler com baixo contraste.
+                {t('smallText')}
               </p>
             </div>
           </div>
@@ -256,7 +258,7 @@ export default function ContrastChecker() {
           {/* WCAG Results */}
           <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
-              Resultados WCAG 2.1
+              {t('wcagResults')}
             </label>
             <div className="grid grid-cols-2 gap-2 sm:gap-3">
               {/* AA Normal */}
@@ -265,7 +267,7 @@ export default function ContrastChecker() {
                   {wcagResults.aaNormal ? <Check className="w-4 h-4 text-green-500" /> : <X className="w-4 h-4 text-red-500" />}
                   <span className="font-bold text-gray-800 dark:text-white text-sm sm:text-base">AA</span>
                 </div>
-                <p className="text-xs text-gray-600 dark:text-white/60">Texto Normal</p>
+                <p className="text-xs text-gray-600 dark:text-white/60">{t('normalTextLabel')}</p>
                 <p className="text-xs text-gray-500 dark:text-white/40">≥ 4.5:1</p>
               </div>
 
@@ -275,7 +277,7 @@ export default function ContrastChecker() {
                   {wcagResults.aaLarge ? <Check className="w-4 h-4 text-green-500" /> : <X className="w-4 h-4 text-red-500" />}
                   <span className="font-bold text-gray-800 dark:text-white text-sm sm:text-base">AA</span>
                 </div>
-                <p className="text-xs text-gray-600 dark:text-white/60">Texto Grande</p>
+                <p className="text-xs text-gray-600 dark:text-white/60">{t('largeTextLabel')}</p>
                 <p className="text-xs text-gray-500 dark:text-white/40">≥ 3:1</p>
               </div>
 
@@ -285,7 +287,7 @@ export default function ContrastChecker() {
                   {wcagResults.aaaNormal ? <Check className="w-4 h-4 text-green-500" /> : <X className="w-4 h-4 text-red-500" />}
                   <span className="font-bold text-gray-800 dark:text-white text-sm sm:text-base">AAA</span>
                 </div>
-                <p className="text-xs text-gray-600 dark:text-white/60">Texto Normal</p>
+                <p className="text-xs text-gray-600 dark:text-white/60">{t('normalTextLabel')}</p>
                 <p className="text-xs text-gray-500 dark:text-white/40">≥ 7:1</p>
               </div>
 
@@ -295,7 +297,7 @@ export default function ContrastChecker() {
                   {wcagResults.aaaLarge ? <Check className="w-4 h-4 text-green-500" /> : <X className="w-4 h-4 text-red-500" />}
                   <span className="font-bold text-gray-800 dark:text-white text-sm sm:text-base">AAA</span>
                 </div>
-                <p className="text-xs text-gray-600 dark:text-white/60">Texto Grande</p>
+                <p className="text-xs text-gray-600 dark:text-white/60">{t('largeTextLabel')}</p>
                 <p className="text-xs text-gray-500 dark:text-white/40">≥ 4.5:1</p>
               </div>
             </div>
@@ -307,7 +309,7 @@ export default function ContrastChecker() {
               <div className="flex items-center gap-2">
                 <Lightbulb className="w-4 h-4 text-yellow-500" />
                 <label className="text-sm font-medium text-gray-700 dark:text-white/80">
-                  Sugestões que passam AAA
+                  {t('suggestionsAAA')}
                 </label>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">

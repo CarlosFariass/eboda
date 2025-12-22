@@ -4,12 +4,15 @@ import { useState, useEffect } from 'react';
 import { Moon, Sun, LogIn, LogOut, User, Menu, X, ChevronDown } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = ({ user, onLogin, onLogout }) => {
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const t = useTranslations();
 
   useEffect(() => {
     setMounted(true);
@@ -52,7 +55,7 @@ const Header = ({ user, onLogin, onLogout }) => {
               {/* Ferramentas Dropdown */}
               <div className="relative group">
                 <button className="flex items-center gap-2 text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white transition-colors py-2 font-bold">
-                  Ferramentas
+                  {t('nav.tools')}
                   <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform" />
                 </button>
                 
@@ -62,7 +65,7 @@ const Header = ({ user, onLogin, onLogout }) => {
                     href="/tools"
                     className="block px-4 py-2 text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
                   >
-                    <div className="font-semibold">Todas as Ferramentas</div>
+                    <div className="font-semibold">{t('nav.allTools')}</div>
                     <div className="text-xs text-gray-500 dark:text-slate-400">Veja todas as ferramentas</div>
                   </Link> */}
                   <div className="border-t border-gray-200 dark:border-slate-700/30 my-1" />
@@ -70,29 +73,29 @@ const Header = ({ user, onLogin, onLogout }) => {
                     href="/tools#color-wheel"
                     className="block px-4 py-2 text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
                   >
-                    <div className="font-semibold">🎨 Color Wheel</div>
-                    <div className="text-xs text-gray-500 dark:text-slate-400">Roda de cores interativa</div>
+                    <div className="font-semibold">{t('tools.colorWheel.name')}</div>
+                    <div className="text-xs text-gray-500 dark:text-slate-400">{t('tools.colorWheel.description')}</div>
                   </Link>
                   <Link
                     href="/tools#image-picker"
                     className="block px-4 py-2 text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
                   >
-                    <div className="font-semibold">🖼️ Image Color Picker</div>
-                    <div className="text-xs text-gray-500 dark:text-slate-400">Extraia cores de imagens</div>
+                    <div className="font-semibold">{t('tools.imageColorPicker.name')}</div>
+                    <div className="text-xs text-gray-500 dark:text-slate-400">{t('tools.imageColorPicker.description')}</div>
                   </Link>
                   <Link
                     href="/tools/contrast-checker"
                     className="block px-4 py-2 text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
                   >
-                    <div className="font-semibold">🔍 Contrast Checker</div>
-                    <div className="text-xs text-gray-500 dark:text-slate-400">Verificador de contraste WCAG</div>
+                    <div className="font-semibold">{t('tools.contrastChecker.name')}</div>
+                    <div className="text-xs text-gray-500 dark:text-slate-400">{t('tools.contrastChecker.description')}</div>
                   </Link>
                   <Link
                     href="/tools/gradient-generator"
                     className="block px-4 py-2 text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
                   >
-                    <div className="font-semibold">🌈 Gradient Generator</div>
-                    <div className="text-xs text-gray-500 dark:text-slate-400">Crie gradientes personalizados</div>
+                    <div className="font-semibold">{t('tools.gradientGenerator.name')}</div>
+                    <div className="text-xs text-gray-500 dark:text-slate-400">{t('tools.gradientGenerator.description')}</div>
                   </Link>
                 </div>
               </div>
@@ -102,24 +105,27 @@ const Header = ({ user, onLogin, onLogout }) => {
                 href="/cores"
                 className="text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white transition-colors py-2 font-bold"
               >
-                Cores
+                {t('nav.colors')}
               </Link>
               <Link href="/palettes" className="text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white transition-colors py-2 font-bold">
-                Paletas
+                {t('nav.palettes')}
               </Link>
               <Link href="/guia-cores" className="text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white transition-colors py-2 font-bold">
-                Guia cores
+                {t('nav.colorGuide')}
               </Link>
             </nav>
 
             {/* Actions */}
             <div className="flex items-center gap-2 sm:gap-4">
+              {/* Language Switcher */}
+              <LanguageSwitcher />
+
               {/* Theme Toggle */}
               {mounted && (
                 <button
                   onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                   className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
-                  title="Alternar tema"
+                  title={t('header.toggleTheme')}
                 >
                   {theme === 'dark' ? (
                     <Sun className="w-5 h-5 text-white" />
@@ -138,13 +144,13 @@ const Header = ({ user, onLogin, onLogout }) => {
                   >
                     <User className="w-4 h-4 text-gray-700 dark:text-white" />
                     <span className="text-sm text-gray-700 dark:text-white truncate max-w-[100px] font-bold">
-                      {user.user_metadata?.full_name || user.email?.split('@')[0] || 'Usuário'}
+                      {user.user_metadata?.full_name || user.email?.split('@')[0] || t('auth.user')}
                     </span>
                   </Link>
                   <button
                     onClick={onLogout}
                     className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
-                    title="Sair"
+                    title={t('auth.logout')}
                   >
                     <LogOut className="w-5 h-5 text-gray-700 dark:text-white" />
                   </button>
@@ -155,7 +161,7 @@ const Header = ({ user, onLogin, onLogout }) => {
                   className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all"
                 >
                   <LogIn className="w-4 h-4 text-white" />
-                  <span className="text-sm font-semibold text-white">Entrar</span>
+                  <span className="text-sm font-semibold text-white">{t('auth.login')}</span>
                 </button>
               )}
 
@@ -182,7 +188,7 @@ const Header = ({ user, onLogin, onLogout }) => {
                   onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
                   className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
                 >
-                  <span>Ferramentas</span>
+                  <span>{t('mobile.tools')}</span>
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${
                       toolsDropdownOpen ? 'rotate-180' : ''
@@ -197,35 +203,35 @@ const Header = ({ user, onLogin, onLogout }) => {
                       onClick={handleNavClick}
                       className="block px-3 py-2 text-sm text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded transition-colors"
                     >
-                      Todas as Ferramentas
+                      {t('nav.allTools')}
                     </Link>
                     <Link
                       href="/tools#color-wheel"
                       onClick={handleNavClick}
                       className="block px-3 py-2 text-sm text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded transition-colors"
                     >
-                      🎨 Color Wheel
+                      {t('tools.colorWheel.name')}
                     </Link>
                     <Link
                       href="/tools#image-picker"
                       onClick={handleNavClick}
                       className="block px-3 py-2 text-sm text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded transition-colors"
                     >
-                      🖼️ Image Color Picker
+                      {t('tools.imageColorPicker.name')}
                     </Link>
                     <Link
                       href="/tools/contrast-checker"
                       onClick={handleNavClick}
                       className="block px-3 py-2 text-sm text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded transition-colors"
                     >
-                      🔍 Contrast Checker
+                      {t('tools.contrastChecker.name')}
                     </Link>
                     <Link
                       href="/tools/gradient-generator"
                       onClick={handleNavClick}
                       className="block px-3 py-2 text-sm text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded transition-colors"
                     >
-                      🌈 Gradient Generator
+                      {t('tools.gradientGenerator.name')}
                     </Link>
                   </div>
                 )}
@@ -237,21 +243,21 @@ const Header = ({ user, onLogin, onLogout }) => {
                 onClick={handleNavClick}
                 className="block px-3 py-2 rounded-lg text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
               >
-                Cores
+                {t('nav.colors')}
               </Link>
               <Link
                 href="/palettes"
                 onClick={handleNavClick}
                 className="block px-3 py-2 rounded-lg text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
               >
-                Paletas
+                {t('nav.palettes')}
               </Link>
               <Link
                 href="/guia-cores"
                 onClick={handleNavClick}
                 className="block px-3 py-2 rounded-lg text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
               >
-                Guia cores
+                {t('nav.colorGuide')}
               </Link>
               
               {/* Sobre - Mobile Only (hidden in footer on mobile) */}
@@ -260,7 +266,7 @@ const Header = ({ user, onLogin, onLogout }) => {
                 onClick={handleNavClick}
                 className="block px-3 py-2 rounded-lg text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
               >
-                Sobre
+                {t('nav.about')}
               </Link>
               
               {/* Termos - Mobile Only (hidden in footer on mobile) */}
@@ -269,7 +275,7 @@ const Header = ({ user, onLogin, onLogout }) => {
                 onClick={handleNavClick}
                 className="block px-3 py-2 rounded-lg text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
               >
-                Termos
+                {t('nav.terms')}
               </Link>
 
               {/* Divider */}
@@ -285,7 +291,7 @@ const Header = ({ user, onLogin, onLogout }) => {
                   >
                     <User className="w-4 h-4 text-gray-700 dark:text-white" />
                     <span className="text-sm text-gray-700 dark:text-white">
-                      {user.user_metadata?.full_name || user.email?.split('@')[0] || 'Usuário'}
+                      {user.user_metadata?.full_name || user.email?.split('@')[0] || t('auth.user')}
                     </span>
                   </Link>
                   <button
@@ -296,7 +302,7 @@ const Header = ({ user, onLogin, onLogout }) => {
                     className="w-full flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white"
                   >
                     <LogOut className="w-4 h-4" />
-                    <span className="text-sm">Sair</span>
+                    <span className="text-sm">{t('auth.logout')}</span>
                   </button>
                 </div>
               ) : (
@@ -308,7 +314,7 @@ const Header = ({ user, onLogin, onLogout }) => {
                   className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all"
                 >
                   <LogIn className="w-4 h-4 text-white" />
-                  <span className="text-sm font-semibold text-white">Entrar</span>
+                  <span className="text-sm font-semibold text-white">{t('auth.login')}</span>
                 </button>
               )}
             </nav>

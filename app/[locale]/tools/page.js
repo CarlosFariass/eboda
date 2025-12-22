@@ -5,10 +5,12 @@ import ColorWheel from '@/components/Tools/ColorWheel';
 import ImageColorPicker from '@/components/Tools/ImageColorPicker';
 import { onAuthStateChange, signOut } from '@/lib/auth';
 import { useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function ToolsPage() {
   const [user, setUser] = useState(null);
   const [activeTab, setActiveTab] = useState('wheel');
+  const t = useTranslations('toolsPage');
 
   useEffect(() => {
     const { data: { subscription } } = onAuthStateChange((user) => {
@@ -37,10 +39,10 @@ export default function ToolsPage() {
         {/* Title */}
         <div className="text-center space-y-4 mb-12">
           <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r  from-gray-700 via-gray-800 to-gray-900 dark:from-purple-400 dark:via-pink-500 dark:to-purple-600">
-            Ferramentas de Cores
+            {t('title')}
           </h1>
           <p className="text-black dark:text-white/60 text-lg mt-4">
-            Explore cores com a roda de cores interativa ou extraia cores de suas imagens
+            {t('subtitle')}
           </p>
         </div>
 
@@ -54,7 +56,7 @@ export default function ToolsPage() {
                 : 'bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-white/60 hover:bg-gray-200 dark:hover:bg-white/20 hover:text-gray-900 dark:hover:text-white border border-gray-200 dark:border-transparent'
             }`}
           >
-            🎨 Color Wheel
+            🎨 {t('colorWheelTab')}
           </button>
           <button
             onClick={() => setActiveTab('image')}
@@ -64,7 +66,7 @@ export default function ToolsPage() {
                 : 'bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-white/60 hover:bg-gray-200 dark:hover:bg-white/20 hover:text-gray-900 dark:hover:text-white border border-gray-200 dark:border-transparent'
             }`}
           >
-            🖼️ Insira uma imagem
+            🖼️ {t('imageTab')}
           </button>
         </div>
 
@@ -77,18 +79,16 @@ export default function ToolsPage() {
         {/* Info Section */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
           <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-600 dark:border-white/10">
-            <h3 className="text-xl font-bold text-gray-600 dark:text-white mb-3">🎨 Color Wheel</h3>
+            <h3 className="text-xl font-bold text-gray-600 dark:text-white mb-3">🎨 {t('colorWheelTitle')}</h3>
             <p className="text-gray-600 dark:text-gray-600 dark:text-white/60 text-sm">
-              Explore o espectro completo de cores com nossa roda de cores interativa. Selecione cores
-              perfeitas e obtenha os valores em HEX, RGB e HSL instantaneamente.
+              {t('colorWheelDesc')}
             </p>
           </div>
 
           <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-600 dark:border-white/10">
-            <h3 className="text-xl font-bold text-xl font-bold text-gray-600 dark:text-white/60 mb-3">🖼️ Insira uma imagem</h3>
+            <h3 className="text-xl font-bold text-xl font-bold text-gray-600 dark:text-white/60 mb-3">🖼️ {t('imagePickerTitle')}</h3>
             <p className="text-gray-600 dark:text-white/60 text-sm">
-              Faça upload de uma imagem e extraia automaticamente as cores dominantes. Passe o mouse
-              sobre a imagem para obter as cores RGB exatas de qualquer pixel.
+              {t('imagePickerDesc')}
             </p>
           </div>
         </div>

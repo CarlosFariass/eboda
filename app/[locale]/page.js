@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Sparkles, Download, Palette } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import LoadingScreen from '@/components/LoadingScreen';
 import PaletteViewer from '@/components/PaletteViewer';
 import ColorSplash from '@/components/ColorSplash';
@@ -20,7 +21,8 @@ export default function App() {
   const [selectedColor, setSelectedColor] = useState(null);
   const [showExportModal, setShowExportModal] = useState(false);
   const [showFavoritesModal, setShowFavoritesModal] = useState(false);
-  const [user, setUser] = useState(null); 
+  const [user, setUser] = useState(null);
+  const t = useTranslations('home'); 
 
   return (
     <>
@@ -33,12 +35,12 @@ export default function App() {
               <h2 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r 
                 from-gray-700 via-gray-800 to-gray-900
                 dark:from-purple-400 dark:via-pink-500 dark:to-purple-600">
-                Sua Paleta de Cores
+                {t('title')}
               </h2>
               <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto" />
 
               <p className="text-black dark:text-white/60 text-lg">
-                Passe o mouse para ver os códigos, clique para ver combinações
+                {t('subtitle')}
               </p>
             </div>
 
@@ -53,9 +55,9 @@ export default function App() {
               <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-black dark:text-white/60 mb-2">Insira uma imagem</h3>
+              <h3 className="text-xl font-bold text-black dark:text-white/60 mb-2">{t('insertImage')}</h3>
               <p className="text-black dark:text-white/60">
-                Veja todas as cores que complementam a sua imagem e crie paletas que combinam
+                {t('insertImageDesc')}
               </p>
             </div>
 
@@ -63,9 +65,9 @@ export default function App() {
               <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-4">
                 <Download className="w-6 h-6 text-black dark:text-white/60" />
               </div>
-              <h3 className="text-xl font-bold text-black dark:text-white/60 mb-2">Exportação Múltipla</h3>
+              <h3 className="text-xl font-bold text-black dark:text-white/60 mb-2">{t('multipleExport')}</h3>
               <p className="text-black dark:text-white/60">
-                Exporte para CSS, SCSS, JS, JSON e Figma com um clique
+                {t('multipleExportDesc')}
               </p>
             </div>
 
@@ -73,19 +75,19 @@ export default function App() {
               <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-4">
                 <Palette className="w-6 h-6 text-black dark:text-white/60" />
               </div>
-              <h3 className="text-xl font-bold text-black dark:text-white/60 mb-2">Combinações Inteligentes</h3>
+              <h3 className="text-xl font-bold text-black dark:text-white/60 mb-2">{t('smartCombinations')}</h3>
               <p className="text-black dark:text-white/60">
-                Veja cores complementares, análogas e tríades automaticamente
+                {t('smartCombinationsDesc')}
               </p>
             </div>
           </div>
           <section id="ferramentas" className=" mt-24 max-w-5xl mx-auto">
             <h2 className="mt-6 text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-2 text-center">
-              Ferramentas Disponíveis
+              {t('availableTools')}
             </h2>
             <div className="space-y-4">
               <p className="text-black dark:text-white/60 text-lg mt-4 text-center">
-                Use nossas ferramentas gratuitas para aplicar a teoria das cores em seus projetos:
+                {t('useToolsDesc')}
               </p>
 
               <div className="grid md:grid-cols-2 gap-4 mt-8">
@@ -98,7 +100,7 @@ export default function App() {
                     Color Wheel
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-white/60 mt-2">
-                    Roda de cores interativa para explorar harmonias e criar paletas.
+                    {t('colorWheelDesc')}
                   </p>
                 </Link>
 
@@ -111,7 +113,7 @@ export default function App() {
                     Image Color Picker
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-white/60 mt-2">
-                    Extraia cores de qualquer imagem para criar paletas inspiradas.
+                    {t('imagePickerDesc')}
                   </p>
                 </Link>
 
@@ -124,7 +126,7 @@ export default function App() {
                     Contrast Checker
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-white/60 mt-2">
-                    Verifique a acessibilidade das suas combinações de cores (WCAG).
+                    {t('contrastCheckerDesc')}
                   </p>
                 </Link>
 
@@ -137,7 +139,7 @@ export default function App() {
                     Gradient Generator
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-white/60 mt-2">
-                    Crie gradientes personalizados e exporte para CSS ou Tailwind.
+                    {t('gradientGeneratorDesc')}
                   </p>
                 </Link>
               </div>
@@ -145,16 +147,16 @@ export default function App() {
           </section>
           <section className="mt-24 max-w-5xl mx-auto text-center p-8 bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 border border-purple-200 dark:border-purple-500/30 rounded-2xl">
           <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-            Pronto para criar suas paletas?
+            {t('readyToCreate')}
           </h3>
           <p className="text-gray-600 dark:text-white/60 mb-6 max-w-lg mx-auto">
-            Aplique o que você aprendeu e comece a criar combinações de cores incríveis para seus projetos.
+            {t('readyToCreateDesc')}
           </p>
           <Link
             href="/tools"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-gray-700 to-gray-900 dark:from-purple-500 dark:to-pink-500 hover:from-gray-800 hover:to-black dark:hover:from-purple-600 dark:hover:to-pink-600 transition-all"
           >
-            Explorar Ferramentas
+            {t('exploreTools')}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>

@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import FuzzyText from './FuzzyText';
 
 const LoadingScreen = ({ onComplete }) => {
+  const t = useTranslations('loading');
   const [isDissolving, setIsDissolving] = useState(false);
   const [opacity, setOpacity] = useState(1);
   const [blur, setBlur] = useState(0);
@@ -35,46 +37,34 @@ const LoadingScreen = ({ onComplete }) => {
 
   return (
     <div 
-      className="fixed inset-0 bg-[#060010] flex items-center justify-center z-50 transition-opacity duration-1000 p-4"
+      className="fixed inset-0 bg-[#060010] flex items-center justify-center z-50 transition-opacity duration-1000"
       style={{ opacity }}
     >
       <div 
-        className="transition-all duration-1000 ease-out text-center w-full max-w-[90vw] md:max-w-[80vw]"
+        className="transition-all duration-1000 ease-out flex flex-col items-center justify-center w-full h-full px-4"
         style={{
           filter: `blur(${blur}px)`,
           transform: isDissolving ? 'scale(1.1)' : 'scale(1)',
           opacity: isDissolving ? 0 : 1,
         }}
       >
-        {/* Desktop: single line */}
-        <div className="hidden md:block">
+        {/* Layout unificado para todos os dispositivos */}
+        <div className="flex flex-col items-center justify-center text-center gap-1 sm:gap-2">
           <FuzzyText
             baseIntensity={0.2}
             hoverIntensity={0.5}
             enableHover={true}
-            fontSize="clamp(2.5rem, 8vw, 6rem)"
+            fontSize="clamp(1.5rem, 5vw, 3rem)"
             color="#ffffff"
           >
-            Bem-vindo ao EBODA
-          </FuzzyText>
-        </div>
-        
-        {/* Mobile/Tablet: two lines */}
-        <div className="md:hidden flex flex-col items-center gap-2">
-          <FuzzyText
-            baseIntensity={0.2}
-            hoverIntensity={0.5}
-            enableHover={true}
-            fontSize="clamp(2rem, 10vw, 4rem)"
-            color="#ffffff"
-          >
-            Bem-vindo ao
+            {t('welcomeTo')}
           </FuzzyText>
           <FuzzyText
             baseIntensity={0.2}
             hoverIntensity={0.5}
             enableHover={true}
-            fontSize="clamp(2.5rem, 14vw, 5rem)"
+            fontSize="clamp(3rem, 12vw, 8rem)"
+            fontWeight="900"
             color="#ffffff"
           >
             EBODA

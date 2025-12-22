@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import PaletteCard from '@/components/PaletteCard';
 import { Search, Filter } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
+import { useTranslations } from 'next-intl';
 
 // Inicializa o cliente Supabase
 const supabase = createClient(
@@ -91,6 +92,9 @@ const FILTER_OPTIONS = [
 ];
 
 export default function PalettesPage() {
+  const t = useTranslations('palettes');
+  const tCommon = useTranslations('common');
+  const tFilters = useTranslations('filters');
   const [palettes, setPalettes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -170,11 +174,11 @@ export default function PalettesPage() {
         {/* Cabeçalho */}
         <div className="mb-12 text-center">
           <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r  from-gray-700 via-gray-800 to-gray-900 dark:from-purple-400 dark:via-pink-500 dark:to-purple-600 mb-4">
-            Descobrir Paletas
+            {t('title')}
           </h1>
           <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto" />
           <p className="text-black dark:text-white/60 text-lg mt-4">
-            Explore milhares de paletas de cores criadas pela comunidade
+            {t('subtitle')}
           </p>
         </div>
 
@@ -184,7 +188,7 @@ export default function PalettesPage() {
             <Search className="absolute left-4 top-3.5 text-gray-400" size={20} />
             <input
               type="text"
-              placeholder="Buscar paletas..."
+              placeholder={t('searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-12 pr-4 py-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-purple-500 focus:outline-none transition-colors"
@@ -197,21 +201,21 @@ export default function PalettesPage() {
           {/* Ordenação */}
           <div className="flex items-center gap-4">
             <Filter size={20} className="text-gray-800 dark:text-white-300" />
-            <label className="text-black dark:text-white/60">Ordenar por:</label>
+            <label className="text-black dark:text-white/60">{t('sortBy')}</label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
               className="px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-purple-500 focus:outline-none transition-colors"
             >
-              <option value="popular">Mais Popular</option>
-              <option value="new">Mais Recente</option>
-              <option value="views">Mais Visualizado</option>
+              <option value="popular">{t('mostPopular')}</option>
+              <option value="new">{t('mostRecent')}</option>
+              <option value="views">{t('mostViewed')}</option>
             </select>
           </div>
 
           {/* Filtros de Tags */}
           <div>
-            <p className="text-black dark:text-white/60 mb-3 font-semibold">Filtrar por categoria:</p>
+            <p className="text-black dark:text-white/60 mb-3 font-semibold">{t('filterByCategory')}</p>
             <div className="flex flex-wrap gap-2">
               {FILTER_OPTIONS.map((filter) => (
                 <button
@@ -233,7 +237,7 @@ export default function PalettesPage() {
           {/* Filtros Ativos */}
           {selectedFilters.length > 0 && (
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-gray-400">Filtros ativos:</span>
+              <span className="text-gray-400">{t('activeFilters')}</span>
               {selectedFilters.map((filter) => {
                 const filterOption = FILTER_OPTIONS.find(f => f.id === filter);
                 return (
@@ -251,7 +255,7 @@ export default function PalettesPage() {
                 onClick={() => setSelectedFilters([])}
                 className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm hover:bg-gray-600 transition-colors"
               >
-                Limpar tudo
+                {tCommon('clearAll')}
               </button>
             </div>
           )}
@@ -260,7 +264,7 @@ export default function PalettesPage() {
         {/* Indicador de Carregamento */}
         {loading && (
           <div className="text-center py-16">
-            <p className="text-black dark:text-white/60 text-xl">Carregando paletas...</p>
+            <p className="text-black dark:text-white/60 text-xl">{t('loadingPalettes')}</p>
           </div>
         )}
 
@@ -274,7 +278,7 @@ export default function PalettesPage() {
         ) : !loading && (
           <div className="text-center py-16">
             <p className="text-gray-400 text-lg">
-              Nenhuma paleta encontrada com os filtros selecionados.
+              {t('noPalettesFound')}
             </p>
             <button
               onClick={() => {
@@ -283,7 +287,7 @@ export default function PalettesPage() {
               }}
               className="mt-4 px-6 py-2 bg-purple-600 text-black dark:text-white/60 rounded-lg hover:bg-purple-700 transition-colors"
             >
-              Limpar Filtros
+              {tCommon('clearFilters')}
             </button>
           </div>
         )}
@@ -292,8 +296,8 @@ export default function PalettesPage() {
         {!loading && palettes.length > 0 && (
           <div className="mt-12 text-center">
             <p>
-              Mostrando <span className="text-black dark:text-white/60">{palettes.length}</span> de{' '}
-              <span className="text-black dark:text-white/60">{totalPalettes}</span> paletas
+              {tCommon('showing')} <span className="text-black dark:text-white/60">{palettes.length}</span> {tCommon('of')}{' '}
+              <span className="text-black dark:text-white/60">{totalPalettes}</span> {t('palettesCount')}
             </p>
           </div>
         )}

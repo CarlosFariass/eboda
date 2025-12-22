@@ -2,8 +2,11 @@
 
 import { Github, ArrowUp } from 'lucide-react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl'
 
 const Footer = () => {
+  const t = useTranslations();
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -26,37 +29,37 @@ const Footer = () => {
               href="/"
               className="text-gray-600 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition-colors text-xs sm:text-sm font-medium whitespace-nowrap"
             >
-              Home
+              {t('nav.home')}
             </Link>
             <Link
               href="/cores"
               className="text-gray-600 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition-colors text-xs sm:text-sm font-medium whitespace-nowrap"
             >
-              Cores
+              {t('nav.colors')}
             </Link>
             <Link
               href="/palettes"
               className="text-gray-600 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition-colors text-xs sm:text-sm font-medium whitespace-nowrap"
             >
-              Paletas
+              {t('nav.palettes')}
             </Link>
             <Link
               href="/tools"
               className="text-gray-600 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition-colors text-xs sm:text-sm font-medium whitespace-nowrap"
             >
-              Ferramentas
+              {t('nav.tools')}
             </Link>
             <Link
               href="/sobre"
               className="hidden sm:inline text-gray-600 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition-colors text-xs sm:text-sm font-medium whitespace-nowrap"
             >
-              Sobre
+              {t('nav.about')}
             </Link>
             <Link
               href="/termos-servico"
               className="hidden sm:inline text-gray-600 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition-colors text-xs sm:text-sm font-medium whitespace-nowrap"
             >
-              Termos
+              {t('nav.terms')}
             </Link>
           </nav>
 
@@ -64,7 +67,7 @@ const Footer = () => {
           <div className="absolute right-0 flex items-center gap-2 sm:gap-4 flex-shrink-0">
             {/* Copyright - Hidden on mobile */}
             <span className="hidden lg:block text-gray-400 dark:text-white/40 text-xs">
-              © {new Date().getFullYear()} EBODA
+              {t('footer.copyright', { year: new Date().getFullYear() })}
             </span>
 
             {/* GitHub */}
@@ -82,7 +85,7 @@ const Footer = () => {
             <button
               onClick={scrollToTop}
               className="p-2 text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg transition-all"
-              title="Voltar ao topo"
+              title={t('header.backToTop')}
             >
               <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>

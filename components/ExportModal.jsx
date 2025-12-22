@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import { X, Download, Copy, Check } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 
 const ExportModal = ({ colors, paletteName, onClose }) => {
+  const t = useTranslations('export');
   const [format, setFormat] = useState('css');
   const [exportData, setExportData] = useState('');
   const [copied, setCopied] = useState(false);
@@ -59,7 +61,7 @@ const ExportModal = ({ colors, paletteName, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-white">Exportar Paleta</h2>
+          <h2 className="text-2xl font-bold text-white">{t('title')}</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-white/10 rounded-lg transition-colors"
@@ -71,7 +73,7 @@ const ExportModal = ({ colors, paletteName, onClose }) => {
         <div className="space-y-6">
           {/* Format Selection */}
           <div>
-            <label className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3 block">Formato</label>
+            <label className="text-sm font-semibold text-gray-600 dark:text-white/60 mb-3 block">{t('format')}</label>
             <div className="grid grid-cols-4 gap-3">
               {['css', 'scss', 'js', 'json'].map((f) => (
                 <button
@@ -95,14 +97,14 @@ const ExportModal = ({ colors, paletteName, onClose }) => {
             disabled={loading}
             className="w-full"
           >
-            {loading ? 'Gerando...' : 'Gerar Código'}
+            {loading ? t('generating') : t('generateCode')}
           </Button>
 
           {/* Export Preview */}
           {exportData && (
             <div>
               <div className="flex items-center justify-between mb-3">
-                <label className="text-sm font-semibold text-gray-600 dark:text-white/60">Código Gerado</label>
+                <label className="text-sm font-semibold text-gray-600 dark:text-white/60">{t('generatedCode')}</label>
                 <div className="flex gap-2">
                   <button
                     onClick={handleCopy}
@@ -111,12 +113,12 @@ const ExportModal = ({ colors, paletteName, onClose }) => {
                     {copied ? (
                       <>
                         <Check className="w-4 h-4" />
-                        Copiado!
+                        {t('copied')}
                       </>
                     ) : (
                       <>
                         <Copy className="w-4 h-4" />
-                        Copiar
+                        {t('copy')}
                       </>
                     )}
                   </button>
@@ -125,7 +127,7 @@ const ExportModal = ({ colors, paletteName, onClose }) => {
                     className="flex items-center gap-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-sm text-white"
                   >
                     <Download className="w-4 h-4" />
-                    Download
+                    {t('download')}
                   </button>
                 </div>
               </div>

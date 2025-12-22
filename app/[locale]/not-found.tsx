@@ -1,6 +1,11 @@
+'use client';
+
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export default function NotFound() {
+  const t = useTranslations('notFound');
+  
   return (
     <main className="min-h-screen bg-[#fafafa] dark:bg-[#060010] flex items-center justify-center px-4">
       <div className="text-center max-w-lg">
@@ -25,10 +30,10 @@ export default function NotFound() {
         </div>
 
       <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-3">
-          Página não encontrada
+          {t('title')}
         </h2>
         <p className="text-gray-600 dark:text-white/60 mb-8 leading-relaxed">
-          Ops! Parece que essa cor saiu da paleta. A página que você procura não existe ou foi movida.
+          {t('description')}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -39,7 +44,7 @@ export default function NotFound() {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
-            Voltar ao Início
+            {t('backToHome')}
           </Link>
           
           <Link
@@ -49,7 +54,7 @@ export default function NotFound() {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
             </svg>
-            Explorar Ferramentas
+            {t('exploreTools')}
           </Link>
         </div>
 

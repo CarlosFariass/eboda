@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const PaletteViewer = ({ colors, onColorClick }) => {
+  const t = useTranslations('palette');
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [copiedIndex, setCopiedIndex] = useState(null);
 
@@ -68,16 +70,16 @@ const PaletteViewer = ({ colors, onColorClick }) => {
                       {copiedIndex === index ? (
                         <>
                           <Check className="w-4 h-4" />
-                          Copiado!
+                          {t('copied')}
                         </>
                       ) : (
                         <>
                           <Copy className="w-4 h-4" />
-                          Copiar Código
+                          {t('copyCode')}
                         </>
                       )}
                     </button>
-                    <p className="text-xs text-white/50 mt-2">Clique para ver combinações</p>
+                    <p className="text-xs text-white/50 mt-2">{t('clickToCombinations')}</p>
                   </div>
                 </div>
               )}

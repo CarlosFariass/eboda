@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { Plus, Trash2, Copy, Check, RotateCw } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function GradientGenerator() {
+  const t = useTranslations('gradientGenerator');
   const [colors, setColors] = useState([
     { color: '#667eea', position: 0 },
     { color: '#764ba2', position: 100 }
@@ -79,10 +81,10 @@ export default function GradientGenerator() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 lg:gap-6 mb-4 sm:mb-6">
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">
-            🌈 Gradient Generator
+            {t('title')}
           </h2>
           <p className="text-sm sm:text-base text-gray-600 dark:text-white/60">
-            Crie gradientes personalizados para seus projetos
+            {t('description')}
           </p>
         </div>
         <button
@@ -90,7 +92,7 @@ export default function GradientGenerator() {
           className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-700 dark:text-white text-sm sm:text-base"
         >
           <RotateCw className="w-4 h-4" />
-          Random
+          {t('random')}
         </button>
       </div>
 
@@ -100,7 +102,7 @@ export default function GradientGenerator() {
           {/* Gradient Type */}
           <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
-              Tipo de Gradiente
+              {t('gradientType')}
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               {['linear', 'radial', 'conic'].map((type) => (
@@ -124,7 +126,7 @@ export default function GradientGenerator() {
             <div className="space-y-2 sm:space-y-3">
               <div className="flex items-center justify-between">
                 <label className="text-sm font-medium text-gray-700 dark:text-white/80">
-                  Ângulo
+                  {t('angle')}
                 </label>
                 <span className="text-sm text-gray-500 dark:text-white/60 font-mono">{angle}°</span>
               </div>
@@ -158,7 +160,7 @@ export default function GradientGenerator() {
           <div className="space-y-2 sm:space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
               <label className="text-sm font-medium text-gray-700 dark:text-white/80">
-                Cores ({colors.length}/10)
+                {t('colors')} ({colors.length}/10)
               </label>
               <button
                 onClick={addColor}
@@ -166,7 +168,7 @@ export default function GradientGenerator() {
                 className="flex items-center justify-center gap-1 text-sm text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 disabled:opacity-50 disabled:cursor-not-allowed self-start sm:self-auto"
               >
                 <Plus className="w-4 h-4" />
-                Adicionar
+                {t('add')}
               </button>
             </div>
             
@@ -216,7 +218,7 @@ export default function GradientGenerator() {
           {/* Main Preview */}
           <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
-              Preview
+              {t('preview')}
             </label>
             <div
               className="w-full h-32 sm:h-48 rounded-xl border-2 border-gray-200 dark:border-white/20 shadow-lg"
@@ -227,7 +229,7 @@ export default function GradientGenerator() {
           {/* Preview Variants */}
           <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
-              Exemplos de Uso
+              {t('usageExamples')}
             </label>
             <div className="grid grid-cols-3 gap-2 sm:gap-3">
               {/* Button */}
@@ -236,9 +238,9 @@ export default function GradientGenerator() {
                   className="w-full py-3 px-4 rounded-lg text-white font-semibold shadow-lg hover:opacity-90 transition-opacity text-sm sm:text-base"
                   style={{ background: gradientCSS }}
                 >
-                  Botão
+                  {t('button')}
                 </button>
-                <p className="text-xs text-gray-500 dark:text-white/40 mt-2">Botão</p>
+                <p className="text-xs text-gray-500 dark:text-white/40 mt-2">{t('button')}</p>
               </div>
               
               {/* Card */}
@@ -247,7 +249,7 @@ export default function GradientGenerator() {
                   className="w-full h-16 sm:h-20 rounded-lg shadow-lg"
                   style={{ background: gradientCSS }}
                 />
-                <p className="text-xs text-gray-500 dark:text-white/40 mt-2">Card</p>
+                <p className="text-xs text-gray-500 dark:text-white/40 mt-2">{t('card')}</p>
               </div>
               
               {/* Circle */}
@@ -256,7 +258,7 @@ export default function GradientGenerator() {
                   className="w-12 h-12 sm:w-16 sm:h-16 rounded-full shadow-lg"
                   style={{ background: gradientCSS }}
                 />
-                <p className="text-xs text-gray-500 dark:text-white/40 mt-2">Avatar</p>
+                <p className="text-xs text-gray-500 dark:text-white/40 mt-2">{t('avatar')}</p>
               </div>
             </div>
           </div>
@@ -264,7 +266,7 @@ export default function GradientGenerator() {
           {/* Export Options */}
           <div className="space-y-2 sm:space-y-3">
             <label className="block text-sm font-medium text-gray-700 dark:text-white/80">
-              Exportar
+              {t('export')}
             </label>
             
             {/* CSS */}
