@@ -4,7 +4,6 @@ import { ThemeProvider } from 'next-themes';
 import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
-import Script from 'next/script';
 
 import '../globals.css';
 
@@ -37,12 +36,7 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={params.locale} suppressHydrationWarning>
       <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2115500079864644"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <meta name="google-adsense-account" content="ca-pub-2115500079864644" />
       </head>
       <body className={inter.className}>
         <NextIntlClientProvider locale={params.locale} messages={messages}>
