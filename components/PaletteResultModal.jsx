@@ -57,7 +57,7 @@ const PaletteResultModal = ({ colors, companyName, message, onClose, onApplyPale
       >
         {/* Animated background */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-500 via-amber-500 to-amber-600 animate-pulse"></div>
         </div>
 
         <div className="relative z-10">
@@ -68,7 +68,7 @@ const PaletteResultModal = ({ colors, companyName, message, onClose, onApplyPale
                 🎨 Paleta Gerada com Sucesso!
               </h2>
               <p className="text-white/60">
-                Para <span className="text-purple-400 font-semibold">{companyName}</span>
+                Para <span className="text-amber-400 font-semibold">{companyName}</span>
               </p>
             </div>
             <button
@@ -81,7 +81,7 @@ const PaletteResultModal = ({ colors, companyName, message, onClose, onApplyPale
 
           {/* AI Message */}
           {message && (
-            <div className="mb-6 p-4 bg-purple-500/20 border border-purple-500/30 rounded-xl">
+            <div className="mb-6 p-4 bg-amber-500/20 border border-amber-500/30 rounded-xl">
               <p className="text-white text-center italic">"{message}"</p>
             </div>
           )}
@@ -129,7 +129,7 @@ const PaletteResultModal = ({ colors, companyName, message, onClose, onApplyPale
                 onApplyPalette(colors);
                 onClose();
               }}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+              className="bg-gradient-to-r from-amber-500 to-amber-500 hover:from-amber-600 hover:to-amber-600"
             >
               <Check className="w-4 h-4 mr-2" />
               Aplicar esta Paleta

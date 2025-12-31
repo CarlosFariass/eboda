@@ -13,7 +13,20 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full py-4 border-t border-gray-200 dark:border-white/10 bg-[#fafafa] dark:bg-[#060010]">
+    <>
+      {/* Divider Wave */}
+      <div className="w-full overflow-hidden rotate-180 bg-gray-900 dark:bg-[#060010]">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 1000 100" 
+        className="w-full h-auto fill-gray-900 dark:fill-[#0a0015] bg-[#fafafa] dark:bg-transparent"
+preserveAspectRatio="none"
+        >
+          <path d="M0 0v80l227.5 18c12.1 1 22.5-8.6 22.5-20.7s10.4-21.8 22.5-20.8l205 16.3c12.1 1 22.5-8.6 22.5-20.8s10.4-21.7 22.5-20.8l205 16.3c12.1 1 22.5-8.6 22.5-20.8S760.4 5 772.5 6L1000 24V0H0Z" />
+        </svg>
+      </div>
+
+      <footer className="w-full py-4 border-t border-gray-200 dark:border-white/10 bg-[#fafafa] dark:bg-[#060010]">
       <div className="container mx-auto px-4">
         <div className="relative flex items-center justify-center">
           
@@ -66,6 +79,12 @@ const Footer = () => {
             >
               {t('nav.terms')}
             </Link>
+            <Link
+              href="/contato"
+              className="hidden sm:inline text-gray-600 dark:text-white/60 hover:text-gray-900 dark:hover:text-white transition-colors text-xs sm:text-sm font-medium whitespace-nowrap"
+            >
+              {t('nav.contact')}
+            </Link>
           </nav>
 
           {/* Right - Copyright, GitHub & Scroll to Top (Absolute) */}
@@ -98,6 +117,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </>
   );
 };
 

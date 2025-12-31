@@ -73,10 +73,10 @@ const FILTER_OPTIONS = [
   { id: 'ui', label: 'UI Design', icon: '🖥️' },
   
   // Cores Dominantes
-  { id: 'pink', label: 'Rosa', icon: '🌸' },
+  { id: 'amber', label: 'Rosa', icon: '🌸' },
   { id: 'blue', label: 'Azul', icon: '🔵' },
   { id: 'green', label: 'Verde', icon: '🟢' },
-  { id: 'purple', label: 'Roxo', icon: '🟣' },
+  { id: 'amber', label: 'Roxo', icon: '🟣' },
   { id: 'orange', label: 'Laranja', icon: '🟠' },
   { id: 'red', label: 'Vermelho', icon: '🔴' },
   { id: 'yellow', label: 'Amarelo', icon: '🟡' },
@@ -173,10 +173,10 @@ export default function PalettesPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Cabeçalho */}
         <div className="mb-12 text-center">
-          <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r  from-gray-700 via-gray-800 to-gray-900 dark:from-purple-400 dark:via-pink-500 dark:to-purple-600 mb-4">
+          <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r  from-gray-700 via-gray-800 to-gray-900 dark:from-amber-400 dark:via-amber-500 dark:to-amber-600 mb-4">
             {t('title')}
           </h1>
-          <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto" />
+          <div className="h-1 w-24 bg-gradient-to-r from-amber-500 to-amber-500 rounded-full mx-auto" />
           <p className="text-black dark:text-white/60 text-lg mt-4">
             {t('subtitle')}
           </p>
@@ -191,7 +191,7 @@ export default function PalettesPage() {
               placeholder={t('searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-purple-500 focus:outline-none transition-colors"
+              className="w-full pl-12 pr-4 py-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-amber-500 focus:outline-none transition-colors"
             />
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function PalettesPage() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-purple-500 focus:outline-none transition-colors"
+              className="px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-amber-500 focus:outline-none transition-colors"
             >
               <option value="popular">{t('mostPopular')}</option>
               <option value="new">{t('mostRecent')}</option>
@@ -223,8 +223,8 @@ export default function PalettesPage() {
                   onClick={() => toggleFilter(filter.id)}
                   className={`px-4 py-2 rounded-full transition-all duration-200 flex items-center gap-2 ${
                     selectedFilters.includes(filter.id)
-                      ? 'bg-purple-600 text-white border border-purple-400'
-                      : 'bg-gray-800 text-gray-300 border border-gray-700 hover:border-purple-500'
+                      ? 'bg-amber-600 text-white border border-amber-400'
+                      : 'bg-gray-800 text-gray-300 border border-gray-700 hover:border-amber-500'
                   }`}
                 >
                   <span>{filter.icon}</span>
@@ -244,7 +244,7 @@ export default function PalettesPage() {
                   <button
                     key={filter}
                     onClick={() => toggleFilter(filter)}
-                    className="px-3 py-1 bg-purple-600 text-white rounded-full text-sm flex items-center gap-2 hover:bg-purple-700 transition-colors"
+                    className="px-3 py-1 bg-amber-600 text-white rounded-full text-sm flex items-center gap-2 hover:bg-amber-700 transition-colors"
                   >
                     {filterOption?.label || filter}
                     <span>×</span>
@@ -285,7 +285,7 @@ export default function PalettesPage() {
                 setSelectedFilters([]);
                 setSearchQuery('');
               }}
-              className="mt-4 px-6 py-2 bg-purple-600 text-black dark:text-white/60 rounded-lg hover:bg-purple-700 transition-colors"
+              className="mt-4 px-6 py-2 bg-amber-600 text-black dark:text-white/60 rounded-lg hover:bg-amber-700 transition-colors"
             >
               {tCommon('clearFilters')}
             </button>

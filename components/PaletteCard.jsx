@@ -34,7 +34,7 @@ export default function PaletteCard({ palette }) {
             {palette.tags.slice(0, 2).map((tag, index) => (
               <span
                 key={index}
-                className="text-xs px-2 py-1 bg-purple-600 text-white rounded-full"
+                className="text-xs px-2 py-1 bg-amber-600 text-white rounded-full"
               >
                 {tag}
               </span>
@@ -64,8 +64,8 @@ export default function PaletteCard({ palette }) {
               onClick={handleLike}
               className={`p-2 rounded-full transition-all ${
                 isLiked
-                  ? 'bg-pink-600 text-white'
-                  : 'bg-gray-700 text-gray-300 hover:bg-pink-600 hover:text-white'
+                  ? 'bg-amber-600 text-white'
+                  : 'bg-gray-700 text-gray-300 hover:bg-amber-600 hover:text-white'
               }`}
             >
               <Heart size={18} fill={isLiked ? 'currentColor' : 'none'} />

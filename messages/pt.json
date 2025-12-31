@@ -10,7 +10,8 @@
     "colorGuide": "Guia cores",
     "about": "Sobre",
     "terms": "Termos",
-    "home": "Home"
+    "home": "Home",
+    "contact": "Contato"
   },
   "tools": {
     "colorWheel": {
@@ -385,6 +386,21 @@
     "section10Title": "10. Contato",
     "section10Text": "Se você tiver alguma dúvida sobre estes Termos, entre em contato conosco:",
     "emailLabel": "Por e-mail"
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Adoramos ouvir você! Preencha o formulário abaixo e entraremos em contato em breve.",
+    "name": "Nome",
+    "namePlaceholder": "Seu nome completo",
+    "email": "E-mail",
+    "emailPlaceholder": "seu@email.com",
+    "whatsapp": "WhatsApp",
+    "whatsappPlaceholder": "(11) 99999-9999",
+    "submit": "Enviar Mensagem",
+    "successTitle": "Mensagem Enviada!",
+    "successMessage": "Obrigado pelo contato. Retornaremos em breve.",
+    "sendAnother": "Enviar Outra Mensagem",
+    "errorMessage": "Erro ao enviar mensagem. Tente novamente."
   },
   "filters": {
     "popular": "Popular",

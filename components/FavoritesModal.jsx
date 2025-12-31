@@ -93,7 +93,7 @@ const FavoritesModal = ({ user, onClose }) => {
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-white/10">
           <div className="flex items-center gap-3">
-            <Heart className="w-6 h-6 text-pink-400 fill-pink-400" />
+            <Heart className="w-6 h-6 text-amber-400 fill-amber-400" />
             <div>
               <h2 className="text-2xl font-bold text-white">Componentes Favoritos</h2>
               <p className="text-gray-600 dark:text-white/60 text-sm">{favorites.length} componentes salvos</p>
@@ -117,7 +117,7 @@ const FavoritesModal = ({ user, onClose }) => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Buscar componentes..."
-              className="w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-white/40 focus:outline-none focus:border-purple-500"
+              className="w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-white/40 focus:outline-none focus:border-amber-500"
             />
           </div>
 
@@ -127,7 +127,7 @@ const FavoritesModal = ({ user, onClose }) => {
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
                 filter === 'all'
-                  ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
+                  ? 'bg-gradient-to-r from-amber-500 to-amber-500 text-white'
                   : 'bg-white/5 text-gray-600 dark:text-white/60 hover:bg-white/10'
               }`}
             >
@@ -139,7 +139,7 @@ const FavoritesModal = ({ user, onClose }) => {
                 onClick={() => setFilter(type)}
                 className={`px-4 py-2 rounded-lg font-semibold text-sm capitalize transition-all ${
                   filter === type
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
+                    ? 'bg-gradient-to-r from-amber-500 to-amber-500 text-white'
                     : 'bg-white/5 text-gray-600 dark:text-white/60 hover:bg-white/10'
                 }`}
               >
@@ -155,7 +155,7 @@ const FavoritesModal = ({ user, onClose }) => {
           <div className="w-1/3 border-r border-white/10 overflow-y-auto p-4 space-y-2">
             {loading ? (
               <div className="flex items-center justify-center py-12">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-500"></div>
               </div>
             ) : filteredFavorites.length === 0 ? (
               <div className="text-center py-12 text-white/40">
@@ -169,7 +169,7 @@ const FavoritesModal = ({ user, onClose }) => {
                   onClick={() => setSelectedFavorite(favorite)}
                   className={`w-full text-left p-4 rounded-lg transition-all ${
                     selectedFavorite?.id === favorite.id
-                      ? 'bg-white/10 border border-purple-500'
+                      ? 'bg-white/10 border border-amber-500'
                       : 'bg-white/5 border border-transparent hover:bg-white/10'
                   }`}
                 >

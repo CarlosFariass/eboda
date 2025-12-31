@@ -19,7 +19,7 @@ const PaletteExamples = ({ colors, selectedColor }) => {
         {/* Website Example */}
         <div className="bg-white/5 border border-white/10 rounded-xl p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Monitor className="w-6 h-6 text-purple-400" />
+            <Monitor className="w-6 h-6 text-amber-400" />
             <h3 className="text-xl font-bold text-white">Website</h3>
           </div>
           <div 
@@ -66,7 +66,7 @@ const PaletteExamples = ({ colors, selectedColor }) => {
         {/* Mobile App Example */}
         <div className="bg-white/5 border border-white/10 rounded-xl p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Smartphone className="w-6 h-6 text-purple-400" />
+            <Smartphone className="w-6 h-6 text-amber-400" />
             <h3 className="text-xl font-bold text-white">App Mobile</h3>
           </div>
           <div className="mx-auto" style={{ maxWidth: '200px' }}>
@@ -119,7 +119,7 @@ const PaletteExamples = ({ colors, selectedColor }) => {
         {/* Document Example */}
         <div className="bg-white/5 border border-white/10 rounded-xl p-6">
           <div className="flex items-center gap-3 mb-4">
-            <FileText className="w-6 h-6 text-purple-400" />
+            <FileText className="w-6 h-6 text-amber-400" />
             <h3 className="text-xl font-bold text-white">Documento</h3>
           </div>
           <div className="bg-white rounded-lg p-6 shadow-xl">
@@ -156,7 +156,7 @@ const PaletteExamples = ({ colors, selectedColor }) => {
         {/* Branding Example */}
         <div className="bg-white/5 border border-white/10 rounded-xl p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Package className="w-6 h-6 text-purple-400" />
+            <Package className="w-6 h-6 text-amber-400" />
             <h3 className="text-xl font-bold text-white">Branding</h3>
           </div>
           <div className="space-y-4">

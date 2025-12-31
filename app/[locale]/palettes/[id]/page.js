@@ -114,7 +114,7 @@ export default function PaletteDetailPage({ params }) {
       <div className="min-h-screen bg-[#fafafa] dark:bg-[#060010] flex items-center justify-center pt-20">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Paleta não encontrada</h1>
-          <Link href="/palettes" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300">
+          <Link href="/palettes" className="text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300">
             ← Voltar para paletas
           </Link>
         </div>
@@ -128,14 +128,14 @@ export default function PaletteDetailPage({ params }) {
         {/* Botão Voltar */}
         <Link
           href="/palettes"
-          className="inline-flex items-center gap-2 text-black dark:text-white/60 hover:text-purple-700 dark:hover:text-purple-300 mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-black dark:text-white/60 hover:text-amber-700 dark:hover:text-amber-300 mb-8 transition-colors"
         >
           <ArrowLeft size={20} />
           Voltar para paletas
         </Link>
 
         {/* Visualização Principal da Paleta */}
-        <div className="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-lg dark:shadow-purple-500/5 mb-8 border border-gray-200 dark:border-white/10">
+        <div className="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-lg dark:shadow-amber-500/5 mb-8 border border-gray-200 dark:border-white/10">
           <div className="flex h-64 w-full">
             {palette.colors.map((color, index) => (
               <div
@@ -164,7 +164,7 @@ export default function PaletteDetailPage({ params }) {
               {palette.tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 bg-purple-600 text-white rounded-full text-sm"
+                  className="px-3 py-1 bg-amber-600 text-white rounded-full text-sm"
                 >
                   {tag}
                 </span>
@@ -194,7 +194,7 @@ export default function PaletteDetailPage({ params }) {
               onClick={() => setIsLiked(!isLiked)}
               className={`w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all ${
                 isLiked
-                  ? 'bg-pink-600 text-white hover:bg-pink-700'
+                  ? 'bg-amber-600 text-white hover:bg-amber-700'
                   : 'bg-white dark:bg-white/5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10'
               }`}
             >
@@ -249,7 +249,7 @@ export default function PaletteDetailPage({ params }) {
                     className={`px-4 py-2 rounded-lg font-semibold flex items-center gap-2 transition-all ${
                       copiedIndex === `hex-${index}`
                         ? 'bg-green-600 text-white'
-                        : 'bg-purple-600 text-white hover:bg-purple-700'
+                        : 'bg-amber-600 text-white hover:bg-amber-700'
                     }`}
                   >
                     {copiedIndex === `hex-${index}` ? (
@@ -273,7 +273,7 @@ export default function PaletteDetailPage({ params }) {
                     className={`px-4 py-2 rounded-lg font-semibold flex items-center gap-2 transition-all ${
                       copiedIndex === `rgb-${index}`
                         ? 'bg-green-600 text-white'
-                        : 'bg-purple-600 text-white hover:bg-purple-700'
+                        : 'bg-amber-600 text-white hover:bg-amber-700'
                     }`}
                   >
                     {copiedIndex === `rgb-${index}` ? (

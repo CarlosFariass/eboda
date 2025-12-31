@@ -75,7 +75,7 @@ export default function ProfilePage() {
           <div className="flex items-start gap-6">
             {/* Avatar */}
             <div className="relative">
-              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center overflow-hidden">
+              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-amber-500 to-amber-500 flex items-center justify-center overflow-hidden">
                 {user?.user_metadata?.avatar_url ? (
                   <img
                     src={user.user_metadata.avatar_url}
@@ -86,7 +86,7 @@ export default function ProfilePage() {
                   <User className="w-16 h-16 text-white" />
                 )}
               </div>
-              <label className="absolute bottom-0 right-0 p-2 bg-purple-500 rounded-full cursor-pointer hover:bg-purple-600 transition-colors">
+              <label className="absolute bottom-0 right-0 p-2 bg-amber-500 rounded-full cursor-pointer hover:bg-amber-600 transition-colors">
                 <Upload className="w-4 h-4 text-white" />
                 <input
                   type="file"

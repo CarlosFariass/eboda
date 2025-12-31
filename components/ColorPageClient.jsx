@@ -307,7 +307,7 @@ export default function ColorPageClient({
                 <ul className="space-y-2">
                   {colorUses.map((use, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="text-purple-500 dark:text-purple-400 mr-3 mt-1">•</span>
+                      <span className="text-amber-500 dark:text-amber-400 mr-3 mt-1">•</span>
                       <span className="text-gray-700 dark:text-gray-300">{use}</span>
                     </li>
                   ))}
@@ -378,14 +378,14 @@ export default function ColorPageClient({
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-r from-purple-600/10 to-pink-600/10 dark:from-purple-600/20 dark:to-pink-600/20 border border-purple-300 dark:border-purple-500/30 rounded-lg p-8 text-center">
+        <div className="bg-gradient-to-r from-amber-600/10 to-amber-600/10 dark:from-amber-600/20 dark:to-amber-600/20 border border-amber-300 dark:border-amber-500/30 rounded-lg p-8 text-center">
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Gostou desta Cor?</h3>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
             Use nossas ferramentas para criar paletas completas e harmônicas.
           </p>
           <Link
             href="/tools"
-            className="inline-block px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:shadow-lg transition-shadow"
+            className="inline-block px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-shadow"
           >
             Explorar Ferramentas
           </Link>

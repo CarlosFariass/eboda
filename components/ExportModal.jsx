@@ -81,7 +81,7 @@ const ExportModal = ({ colors, paletteName, onClose }) => {
                   onClick={() => setFormat(f)}
                   className={`px-4 py-2 rounded-lg font-semibold uppercase transition-all ${
                     format === f
-                      ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
+                      ? 'bg-gradient-to-r from-amber-500 to-amber-500 text-white'
                       : 'bg-white/5 text-gray-600 dark:text-white/60 hover:bg-white/10'
                   }`}
                 >

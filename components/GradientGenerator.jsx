@@ -111,7 +111,7 @@ export default function GradientGenerator() {
                   onClick={() => setGradientType(type)}
                   className={`py-3 px-4 rounded-lg font-medium transition-all capitalize text-sm sm:text-base ${
                     gradientType === type
-                      ? 'bg-gradient-to-r from-gray-700 to-gray-900 dark:from-purple-500 dark:to-pink-500 text-white'
+                      ? 'bg-gradient-to-r from-gray-700 to-gray-900 dark:from-amber-500 dark:to-amber-500 text-white'
                       : 'bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-white/70 hover:bg-gray-200 dark:hover:bg-white/10'
                   }`}
                 >
@@ -136,7 +136,7 @@ export default function GradientGenerator() {
                 max="360"
                 value={angle}
                 onChange={(e) => setAngle(parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-200 dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                className="w-full h-2 bg-gray-200 dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-amber-500"
               />
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[0, 45, 90, 180].map((a) => (
@@ -165,7 +165,7 @@ export default function GradientGenerator() {
               <button
                 onClick={addColor}
                 disabled={colors.length >= 10}
-                className="flex items-center justify-center gap-1 text-sm text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 disabled:opacity-50 disabled:cursor-not-allowed self-start sm:self-auto"
+                className="flex items-center justify-center gap-1 text-sm text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 disabled:opacity-50 disabled:cursor-not-allowed self-start sm:self-auto"
               >
                 <Plus className="w-4 h-4" />
                 {t('add')}
@@ -312,7 +312,7 @@ export default function GradientGenerator() {
                   {copied === 'cssVar' ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
-              <pre className="text-xs sm:text-sm text-gray-700 dark:text-purple-400 font-mono overflow-x-auto">
+              <pre className="text-xs sm:text-sm text-gray-700 dark:text-amber-400 font-mono overflow-x-auto">
                 {exportFormats.cssVariable}
               </pre>
             </div>

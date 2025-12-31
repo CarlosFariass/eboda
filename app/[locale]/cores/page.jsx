@@ -31,8 +31,8 @@ export default function CoresIndexPage() {
       {/* Header */} 
       <div className="text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r  from-gray-700 via-gray-800 to-gray-900 dark:from-purple-400 dark:via-pink-500 dark:to-purple-600 mb-4">{t('title')}</h1>
-          <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto"  />
+          <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r  from-gray-700 via-gray-800 to-gray-900 dark:from-amber-400 dark:via-amber-500 dark:to-amber-600 mb-4">{t('title')}</h1>
+          <div className="h-1 w-24 bg-gradient-to-r from-amber-500 to-amber-500 rounded-full mx-auto"  />
           <p className="text-black dark:text-white/60 text-lg mt-4">
             {t('subtitle', { count: POPULAR_COLORS.length })}
           </p>
@@ -56,7 +56,7 @@ export default function CoresIndexPage() {
 
             {/* Informações */}
             <div className="p-4">
-              <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-400 transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-amber-400 transition-colors">
                 {color.name}
               </h3>
 
@@ -81,7 +81,7 @@ export default function CoresIndexPage() {
               </p>
 
               {/* CTA */}
-              <div className="text-sm text-purple-400 group-hover:text-purple-300 transition-colors font-semibold">
+              <div className="text-sm text-amber-400 group-hover:text-amber-300 transition-colors font-semibold">
                 {tCommon('viewDetails')} →
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function CoresIndexPage() {
           </p>
           <Link
             href="/tools"
-            className="inline-block px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:shadow-lg transition-shadow"
+            className="inline-block px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-shadow"
           >
             {tHome('exploreTools')}
           </Link>

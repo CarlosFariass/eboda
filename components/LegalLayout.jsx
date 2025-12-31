@@ -15,10 +15,10 @@ export default function LegalLayout({ title, content }) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Título da Página */}
         <div className="mb-12">
-          <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 dark:from-purple-400 dark:via-pink-500 dark:to-purple-600 mb-4">
+          <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 dark:from-amber-400 dark:via-amber-500 dark:to-amber-600 mb-4">
             {title}
           </h1>
-          <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+          <div className="h-1 w-24 bg-gradient-to-r from-amber-500 to-amber-500 rounded-full" />
         </div>
 
         {/* Conteúdo em Markdown */}
@@ -56,7 +56,7 @@ export default function LegalLayout({ title, content }) {
               // Links
               a: ({ node, ...props }) => (
                 <a
-                  className="text-purple-400 hover:text-pink-400 underline transition-colors"
+                  className="text-amber-400 hover:text-amber-400 underline transition-colors"
                   {...props}
                 />
               ),
@@ -64,7 +64,7 @@ export default function LegalLayout({ title, content }) {
               // Blockquotes
               blockquote: ({ node, ...props }) => (
                 <blockquote
-                  className="border-l-4 border-purple-500 pl-4 italic text-slate-400 my-4"
+                  className="border-l-4 border-amber-500 pl-4 italic text-slate-400 my-4"
                   {...props}
                 />
               ),
@@ -74,14 +74,14 @@ export default function LegalLayout({ title, content }) {
                 if (inline) {
                   return (
                     <code
-                      className="bg-slate-900 text-purple-300 px-2 py-1 rounded font-mono text-sm border border-purple-500/30"
+                      className="bg-slate-900 text-amber-300 px-2 py-1 rounded font-mono text-sm border border-amber-500/30"
                       {...props}
                     />
                   );
                 }
                 return (
                   <code
-                    className="block bg-slate-900 text-slate-100 p-4 rounded font-mono text-sm overflow-x-auto mb-4 border border-purple-500/30"
+                    className="block bg-slate-900 text-slate-100 p-4 rounded font-mono text-sm overflow-x-auto mb-4 border border-amber-500/30"
                     {...props}
                   />
                 );
@@ -94,18 +94,18 @@ export default function LegalLayout({ title, content }) {
                 </div>
               ),
               thead: ({ node, ...props }) => (
-                <thead className="bg-purple-500/20" {...props} />
+                <thead className="bg-amber-500/20" {...props} />
               ),
               th: ({ node, ...props }) => (
-                <th className="border border-purple-500/30 px-4 py-2 text-left text-purple-300 font-semibold" {...props} />
+                <th className="border border-amber-500/30 px-4 py-2 text-left text-amber-300 font-semibold" {...props} />
               ),
               td: ({ node, ...props }) => (
-                <td className="border border-purple-500/30 px-4 py-2 text-slate-300" {...props} />
+                <td className="border border-amber-500/30 px-4 py-2 text-slate-300" {...props} />
               ),
 
               // Linhas horizontais
               hr: ({ node, ...props }) => (
-                <hr className="border-purple-500/30 my-6" {...props} />
+                <hr className="border-amber-500/30 my-6" {...props} />
               ),
             }}
           >

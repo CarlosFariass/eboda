@@ -282,7 +282,7 @@ export default function ImageColorPicker() {
 
           {/* Actions */}
           <div className="flex gap-3">
-            <button onClick={() => fileInputRef.current?.click()} className="flex-1 py-3 px-6 rounded-lg bg-gradient-to-r from-gray-700 to-gray-900 dark:from-purple-500 dark:to-pink-500 hover:from-gray-800 hover:to-black dark:hover:from-purple-600 dark:hover:to-pink-600 text-white font-semibold transition-all flex items-center justify-center gap-2">
+            <button onClick={() => fileInputRef.current?.click()} className="flex-1 py-3 px-6 rounded-lg bg-gradient-to-r from-gray-700 to-gray-900 dark:from-amber-500 dark:to-amber-500 hover:from-gray-800 hover:to-black dark:hover:from-amber-600 dark:hover:to-amber-600 text-white font-semibold transition-all flex items-center justify-center gap-2">
               <Upload className="w-5 h-5" />
               Trocar Imagem
             </button>

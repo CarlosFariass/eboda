@@ -23,14 +23,14 @@ export default function GuiaCoresPage() {
         
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-900 dark:from-purple-400 dark:to-pink-500">
+          <h1 className="text-4xl md:text-5xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-900 dark:from-amber-400 dark:to-amber-500">
             {t('pageTitle')}
           </h1>
-          <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto" />
+          <div className="h-1 w-24 bg-gradient-to-r from-amber-500 to-amber-500 rounded-full mx-auto" />
           <p className="text-black dark:text-white/60 text-lg mt-4">
             {t('pageSubtitle')}
           </p>
-          <div className="w-24 h-1 mx-auto mt-6 rounded-full bg-gradient-to-r from-gray-400 to-gray-600 dark:from-purple-500 dark:to-pink-500" />
+          <div className="w-24 h-1 mx-auto mt-6 rounded-full bg-gradient-to-r from-gray-400 to-gray-600 dark:from-amber-500 dark:to-amber-500" />
         </header>
 
         {/* Índice */}
@@ -338,8 +338,8 @@ export default function GuiaCoresPage() {
                 { color: '#FACC15', name: t('yellow'), emotions: t('yellowEmotions'), brands: t('yellowBrands'), use: t('yellowUse') },
                 { color: '#22C55E', name: t('green'), emotions: t('greenEmotions'), brands: t('greenBrands'), use: t('greenUse') },
                 { color: '#3B82F6', name: t('blue'), emotions: t('blueEmotions'), brands: t('blueBrands'), use: t('blueUse') },
-                { color: '#A855F7', name: t('purple'), emotions: t('purpleEmotions'), brands: t('purpleBrands'), use: t('purpleUse') },
-                { color: '#EC4899', name: t('pink'), emotions: t('pinkEmotions'), brands: t('pinkBrands'), use: t('pinkUse') },
+                { color: '#A855F7', name: t('amber'), emotions: t('amberEmotions'), brands: t('amberBrands'), use: t('amberUse') },
+                { color: '#EC4899', name: t('amber'), emotions: t('amberEmotions'), brands: t('amberBrands'), use: t('amberUse') },
                 { color: '#1F2937', name: t('black'), emotions: t('blackEmotions'), brands: t('blackBrands'), use: t('blackUse') },
               ].map((item) => (
                 <div key={item.name} className="flex items-start gap-4 p-4 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl">
@@ -409,10 +409,10 @@ export default function GuiaCoresPage() {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-purple-100 dark:bg-purple-500/20 border border-purple-200 dark:border-purple-500/30 rounded-xl">
+            <div className="mt-6 p-4 bg-amber-100 dark:bg-amber-500/20 border border-amber-200 dark:border-amber-500/30 rounded-xl">
               <p className="text-gray-700 dark:text-white/80">
                 <strong>{t('contrastTip')}:</strong> {t('contrastTipText')}{' '}
-                <Link href="/tools/contrast-checker" className="text-purple-600 dark:text-purple-400 underline hover:no-underline">
+                <Link href="/tools/contrast-checker" className="text-amber-600 dark:text-amber-400 underline hover:no-underline">
                   Contrast Checker
                 </Link>{' '}
                 {t('contrastTipText2')}
@@ -552,7 +552,7 @@ export default function GuiaCoresPage() {
           </div>
         </section>
 
-        <section className="text-center p-8 bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 border border-purple-200 dark:border-purple-500/30 rounded-2xl mt-8">
+        <section className="text-center p-8 bg-gradient-to-r from-amber-500/10 to-amber-500/10 dark:from-amber-500/20 dark:to-amber-500/20 border border-amber-200 dark:border-amber-500/30 rounded-2xl mt-8">
           <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
             {t('readyToCreate')}
           </h3>
@@ -561,7 +561,7 @@ export default function GuiaCoresPage() {
           </p>
           <Link
             href="/tools"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-gray-700 to-gray-900 dark:from-purple-500 dark:to-pink-500 hover:from-gray-800 hover:to-black dark:hover:from-purple-600 dark:hover:to-pink-600 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-gray-700 to-gray-900 dark:from-amber-500 dark:to-amber-500 hover:from-gray-800 hover:to-black dark:hover:from-amber-600 dark:hover:to-amber-600 transition-all"
           >
             {t('exploreTools')}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -164,7 +164,7 @@ const Header = ({ user, onLogin, onLogout }) => {
               ) : (
                 <button
                   onClick={onLogin}
-                  className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all"
+                  className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-500 hover:from-amber-600 hover:to-amber-600 transition-all"
                 >
                   <LogIn className="w-4 h-4 text-white" />
                   <span className="text-sm font-semibold text-white">{t('auth.login')}</span>
@@ -283,6 +283,15 @@ const Header = ({ user, onLogin, onLogout }) => {
               >
                 {t('nav.terms')}
               </Link>
+              
+              {/* Contato - Mobile Only */}
+              <Link
+                href="/contato"
+                onClick={handleNavClick}
+                className="block px-3 py-2 rounded-lg text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+              >
+                {t('nav.contact')}
+              </Link>
 
               {/* Divider */}
               <div className="border-t border-gray-200 dark:border-white/10 my-2" />
@@ -317,7 +326,7 @@ const Header = ({ user, onLogin, onLogout }) => {
                     onLogin();
                     handleNavClick();
                   }}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-500 hover:from-amber-600 hover:to-amber-600 transition-all"
                 >
                   <LogIn className="w-4 h-4 text-white" />
                   <span className="text-sm font-semibold text-white">{t('auth.login')}</span>

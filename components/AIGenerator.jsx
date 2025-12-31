@@ -72,7 +72,7 @@ const AIGenerator = ({ onGenerate, onClose }) => {
       >
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <Sparkles className="w-6 h-6 text-purple-400" />
+            <Sparkles className="w-6 h-6 text-amber-400" />
             <h2 className="text-2xl font-bold text-white">Gerar Paleta com IA</h2>
           </div>
           <button
@@ -91,7 +91,7 @@ const AIGenerator = ({ onGenerate, onClose }) => {
           {/* Upload Area */}
           <div
             onClick={() => fileInputRef.current?.click()}
-            className="border-2 border-dashed border-white/20 rounded-xl p-12 cursor-pointer hover:border-purple-500 transition-colors"
+            className="border-2 border-dashed border-white/20 rounded-xl p-12 cursor-pointer hover:border-amber-500 transition-colors"
           >
             <input
               ref={fileInputRef}

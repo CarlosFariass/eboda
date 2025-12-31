@@ -113,7 +113,7 @@ const AuthModal = ({ onClose }) => {
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white focus:border-amber-500 focus:outline-none"
                   placeholder={t('yourName')}
                   disabled={loading}
                 />
@@ -126,7 +126,7 @@ const AuthModal = ({ onClose }) => {
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white focus:border-amber-500 focus:outline-none"
                 placeholder="email@example.com"
                 disabled={loading}
               />
@@ -138,7 +138,7 @@ const AuthModal = ({ onClose }) => {
                 type="password"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white focus:border-amber-500 focus:outline-none"
                 placeholder="••••••••"
                 disabled={loading}
               />
@@ -147,7 +147,7 @@ const AuthModal = ({ onClose }) => {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+              className="w-full bg-gradient-to-r from-amber-500 to-amber-500 hover:from-amber-600 hover:to-amber-600"
             >
               {loading ? t('loading') : (mode === 'signup' ? t('create') : t('login'))}
             </Button>

@@ -10,7 +10,8 @@
     "colorGuide": "Color Guide",
     "about": "About",
     "terms": "Terms",
-    "home": "Home"
+    "home": "Home",
+    "contact": "Contact"
   },
   "tools": {
     "colorWheel": {
@@ -385,6 +386,21 @@
     "section10Title": "10. Contact",
     "section10Text": "If you have any questions about these Terms, please contact us:",
     "emailLabel": "By email"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "We'd love to hear from you! Fill out the form below and we'll get back to you soon.",
+    "name": "Name",
+    "namePlaceholder": "Your full name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "whatsapp": "WhatsApp",
+    "whatsappPlaceholder": "+1 (555) 123-4567",
+    "submit": "Send Message",
+    "successTitle": "Message Sent!",
+    "successMessage": "Thank you for reaching out. We'll get back to you soon.",
+    "sendAnother": "Send Another Message",
+    "errorMessage": "Error sending message. Please try again."
   },
   "filters": {
     "popular": "Popular",
