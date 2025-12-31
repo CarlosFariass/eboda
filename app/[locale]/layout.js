@@ -14,8 +14,60 @@ import { Analytics } from "@vercel/analytics/next";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'EBODA - Paleta de Cores',
-  description: 'Ferramenta inovadora de paleta de cores',
+  title: {
+    default: 'EBODA - Gerador de Paleta de Cores Online Grátis',
+    template: '%s | EBODA'
+  },
+  description: 'Crie paletas de cores profissionais com ferramentas gratuitas: Color Wheel, Image Color Picker, Contrast Checker e Gradient Generator. Extraia cores de imagens, verifique acessibilidade WCAG e exporte para CSS, SCSS e Tailwind.',
+  keywords: ['paleta de cores', 'gerador de cores', 'color picker', 'cores complementares', 'harmonia de cores', 'WCAG', 'acessibilidade', 'gradiente CSS', 'design', 'UI/UX'],
+  authors: [{ name: 'EBODA' }],
+  creator: 'EBODA',
+  publisher: 'EBODA',
+  metadataBase: new URL('https://eboda.com.br'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'pt-BR': '/pt',
+      'en-US': '/en',
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    alternateLocale: 'en_US',
+    url: 'https://eboda.com.br',
+    siteName: 'EBODA',
+    title: 'EBODA - Gerador de Paleta de Cores Online Grátis',
+    description: 'Crie paletas de cores profissionais com ferramentas gratuitas. Extraia cores de imagens, verifique acessibilidade e exporte para CSS.',
+    images: [
+      {
+        url: '/assets/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'EBODA - Gerador de Paleta de Cores',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'EBODA - Gerador de Paleta de Cores Online Grátis',
+    description: 'Crie paletas de cores profissionais com ferramentas gratuitas. Color Wheel, Image Picker, Contrast Checker e mais.',
+    images: ['/assets/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'sua-verification-code-aqui',
+  },
 };
 
 export async function generateStaticParams() {

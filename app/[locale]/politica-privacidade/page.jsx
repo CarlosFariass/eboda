@@ -6,7 +6,7 @@ const content = `# Política de Privacidade
 
 **Última Atualização:** 23 de Novembro de 2025
 
-A **EBODA** ("nós", "nosso", ou "a Empresa") opera o website [Seu Domínio Aqui] e suas ferramentas de paleta de cores (o "Serviço").
+A **EBODA** ("nós", "nosso", ou "a Empresa") opera o website https://eboda.com.br e suas ferramentas de paleta de cores (o "Serviço").
 
 Esta página informa sobre nossas políticas relativas à coleta, uso e divulgação de Dados Pessoais quando você usa nosso Serviço.
 
