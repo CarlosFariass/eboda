@@ -1,8 +1,37 @@
+// Importar cores para gerar URLs dinâmicas
+const POPULAR_COLORS_IDS = [
+  'azul-claro', 'azul-escuro', 'azul-ceu',
+  'vermelho-vibrante', 'vermelho-escuro', 'vermelho-suave',
+  'verde-sucesso', 'verde-escuro', 'verde-menta',
+  'amarelo-vibrante', 'amarelo-mostarda', 'amarelo-suave',
+  'roxo-vibrante', 'roxo-escuro', 'lavanda',
+  'laranja-vibrante', 'laranja-escuro', 'pessego',
+  'rosa-vibrante', 'rosa-claro', 'magenta',
+  'cinza-escuro', 'cinza-medio', 'cinza-claro',
+  'preto', 'branco',
+];
+
 export default function sitemap() {
   const baseUrl = 'https://eboda.com.br';
   
   // Data atual para lastModified
   const currentDate = new Date().toISOString();
+
+  // Gerar páginas de cores dinâmicas
+  const colorPages = POPULAR_COLORS_IDS.flatMap((colorId) => [
+    {
+      url: `${baseUrl}/pt/cores/${colorId}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/en/cores/${colorId}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+  ]);
   
   // Páginas estáticas principais
   const staticPages = [
@@ -153,5 +182,5 @@ export default function sitemap() {
     },
   ];
 
-  return staticPages;
+  return [...staticPages, ...colorPages];
 }

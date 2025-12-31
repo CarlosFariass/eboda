@@ -8,6 +8,7 @@ import PaletteViewer from '@/components/PaletteViewer';
 import ColorSplash from '@/components/ColorSplash';
 import ExportModal from '@/components/ExportModal';
 import FavoritesModal from '@/components/FavoritesModal';
+import FAQ from '@/components/FAQ';
 import Link from 'next/link';
 
 const DEFAULT_COLORS = [
@@ -205,6 +206,9 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQ />
 
         {/* Modals */}
         {selectedColor && (

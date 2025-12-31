@@ -81,7 +81,16 @@
     "gradientGeneratorDesc": "Create custom gradients and export to CSS or Tailwind.",
     "readyToCreate": "Ready to create your palettes?",
     "readyToCreateDesc": "Apply what you've learned and start creating amazing color combinations for your projects.",
-    "exploreTools": "Explore Tools"
+    "exploreTools": "Explore Tools",
+    "faqTitle": "Frequently Asked Questions",
+    "faq1Question": "Is EBODA free?",
+    "faq1Answer": "Yes! All EBODA tools are 100% free. You can use Color Wheel, Image Color Picker, Contrast Checker, and Gradient Generator without paying anything.",
+    "faq2Question": "How to extract colors from an image?",
+    "faq2Answer": "Use our Image Color Picker tool. Upload any image and click on points to extract colors. You'll automatically get HEX, RGB, and HSL codes.",
+    "faq3Question": "What is the WCAG contrast checker?",
+    "faq3Answer": "It's a tool that checks if your design's color combination meets WCAG accessibility standards. It indicates whether the contrast is sufficient for people with visual impairments.",
+    "faq4Question": "Can I export the created palettes?",
+    "faq4Answer": "Yes! You can export your palettes in various formats: CSS, SCSS, JSON, JavaScript, and even Tailwind CSS code. Just create your palette and click export."
   },
   "loading": {
     "welcome": "Welcome to EBODA",

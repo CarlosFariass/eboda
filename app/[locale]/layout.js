@@ -10,6 +10,7 @@ import '../globals.css';
 import HeaderWrapper from '@/components/HeaderWrapper';
 import Footer from '@/components/Footer';
 import { Analytics } from "@vercel/analytics/next";
+import { WebsiteJsonLd, OrganizationJsonLd, SoftwareApplicationJsonLd } from '@/components/JsonLd';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -89,6 +90,9 @@ export default async function RootLayout({ children, params }) {
     <html lang={params.locale} suppressHydrationWarning>
       <head>
         <meta name="google-adsense-account" content="ca-pub-2115500079864644" />
+        <WebsiteJsonLd />
+        <OrganizationJsonLd />
+        <SoftwareApplicationJsonLd />
       </head>
       <body className={inter.className}>
         <NextIntlClientProvider locale={params.locale} messages={messages}>
