@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Moon, Sun, LogIn, LogOut, User, Menu, X, ChevronDown } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -41,13 +42,18 @@ const Header = ({ user, onLogin, onLogout }) => {
           }}
         >
           <div className="flex items-center justify-between gap-4 sm:gap-8">
-            {/* Logo */}
-            <Link href="/" className="flex-shrink-0">
-              <h1 className="text-2xl sm:text-4xl font-black text-transparent bg-clip-text transition-all
-                bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black
-                dark:from-purple-400 dark:to-pink-600 dark:hover:from-purple-300 dark:hover:to-pink-500">
-                EBODA
-              </h1>
+            {/* Logo - Absolute positioning para não afetar altura do header */}
+            <Link href="/" className="relative flex-shrink-0">
+              <Image
+                src="/assets/logo-eboda.png"
+                alt="EBODA Logo"
+                width={220}
+                height={80}
+                className="absolute left-0 top-1/2 -translate-y-1/2 h-20 sm:h-24 w-auto dark:invert dark:brightness-200 transition-all hover:opacity-80"
+                priority
+              />
+              {/* Spacer para manter o espaço do logo no layout */}
+              <div className="w-28 sm:w-36 h-8" />
             </Link>
 
             {/* Desktop Navigation */}

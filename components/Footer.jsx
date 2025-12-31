@@ -2,6 +2,7 @@
 
 import { Github, ArrowUp } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl'
 
 const Footer = () => {
@@ -18,9 +19,13 @@ const Footer = () => {
           
           {/* Left - Logo (Absolute) */}
           <Link href="/" className="absolute left-0 flex-shrink-0">
-            <span className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-900 dark:from-purple-400 dark:to-pink-600">
-              E
-            </span>
+            <Image
+              src="/assets/eboda-fav.svg"
+              alt="EBODA"
+              width={32}
+              height={32}
+              className="w-7 h-7 sm:w-8 sm:h-8 dark:invert dark:brightness-200 transition-all hover:opacity-80"
+            />
           </Link>
 
           {/* Center - Navigation (Truly Centered) */}
