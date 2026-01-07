@@ -85,20 +85,42 @@ export default function PaletteDetailPage({ params }) {
     document.body.removeChild(element);
   };
 
-  const shareOnSocial = (platform) => {
+  const handleShare = async () => {
     if (!palette) return;
-    const url = `${window.location.origin}/palettes/${palette.id}`;
+    
+    const url = window.location.href;
     const text = `Confira esta paleta incrível no EBODA: ${palette.description}`;
+    const title = `Paleta de Cores - ${palette.description}`;
 
-    const shareUrls = {
-      twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-      pinterest: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(text)}`,
-    };
-
-    if (shareUrls[platform]) {
-      window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+    // Usar Web Share API se disponível (móvel e navegadores modernos)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: title,
+          text: text,
+          url: url,
+        });
+      } catch (err) {
+        // Usuário cancelou ou erro - não fazer nada
+        if (err.name !== 'AbortError') {
+          console.log('Erro ao compartilhar:', err);
+          fallbackShare(url);
+        }
+      }
+    } else {
+      // Fallback para navegadores sem Web Share API
+      fallbackShare(url);
     }
+  };
+
+  const fallbackShare = (url) => {
+    // Copiar link para clipboard
+    navigator.clipboard.writeText(url).then(() => {
+      alert('Link copiado para a área de transferência!');
+    }).catch(() => {
+      // Fallback final: prompt com o link
+      prompt('Copie o link abaixo:', url);
+    });
   };
 
   if (loading) {
@@ -170,22 +192,6 @@ export default function PaletteDetailPage({ params }) {
                 </span>
               ))}
             </div>
-
-            {/* Estatísticas */}
-            <div className="grid grid-cols-3 gap-4 mb-6">
-              <div className="bg-white dark:bg-white/5 rounded-lg p-4 border border-gray-200 dark:border-white/10">
-                <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">Visualizações</p>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">{palette.views || 0}</p>
-              </div>
-              <div className="bg-white dark:bg-white/5 rounded-lg p-4 border border-gray-200 dark:border-white/10">
-                <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">Curtidas</p>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">{palette.likes || 0}</p>
-              </div>
-              <div className="bg-white dark:bg-white/5 rounded-lg p-4 border border-gray-200 dark:border-white/10">
-                <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">Criador</p>
-                <p className="text-lg font-bold text-gray-900 dark:text-white">{palette.creator || 'Comunidade'}</p>
-              </div>
-            </div>
           </div>
 
           {/* Ações Laterais */}
@@ -211,7 +217,7 @@ export default function PaletteDetailPage({ params }) {
             </button>
 
             <button
-              onClick={() => shareOnSocial('twitter')}
+              onClick={handleShare}
               className="w-full py-3 bg-white dark:bg-white/5 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-white/10 transition-all flex items-center justify-center gap-2 border border-gray-200 dark:border-white/10"
             >
               <Share2 size={20} />

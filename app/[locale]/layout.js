@@ -11,6 +11,7 @@ import HeaderWrapper from '@/components/HeaderWrapper';
 import Footer from '@/components/Footer';
 import { Analytics } from "@vercel/analytics/next";
 import { WebsiteJsonLd, OrganizationJsonLd, SoftwareApplicationJsonLd } from '@/components/JsonLd';
+import { AuthProvider } from '@/contexts/AuthContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -101,15 +102,15 @@ export default async function RootLayout({ children, params }) {
       <body className={inter.className}>
         <NextIntlClientProvider locale={params.locale} messages={messages}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-            
-            <HeaderWrapper />
+            <AuthProvider>
+              <HeaderWrapper />
 
-            <main className="min-h-screen">
-              {children}
-            </main>
+              <main className="min-h-screen">
+                {children}
+              </main>
 
-            <Footer />
-
+              <Footer />
+            </AuthProvider>
             <Analytics />
 
           </ThemeProvider>

@@ -8,6 +8,7 @@
     "colors": "Colors",
     "palettes": "Palettes",
     "colorGuide": "Color Guide",
+    "fonts": "Fonts",
     "about": "About",
     "terms": "Terms",
     "home": "Home",
@@ -29,6 +30,10 @@
     "gradientGenerator": {
       "name": "🌈 Gradient Generator",
       "description": "Create custom gradients"
+    },
+    "fontsExplorer": {
+      "name": "🔤 Fonts Explorer",
+      "description": "Explore Google Fonts"
     }
   },
   "auth": {
@@ -52,7 +57,9 @@
     "fillEmailPassword": "Please fill email and password",
     "accountCreated": "Account created! Check your email to confirm.",
     "authError": "Authentication error",
-    "oauthNotConfigured": "OAuth not configured. Use email/password."
+    "oauthNotConfigured": "OAuth not configured. Use email/password.",
+    "orContinueWith": "or continue with",
+    "continueWithGoogle": "Continue with Google"
   },
   "footer": {
     "copyright": "© {year} EBODA"
@@ -410,6 +417,26 @@
     "successMessage": "Thank you for reaching out. We'll get back to you soon.",
     "sendAnother": "Send Another Message",
     "errorMessage": "Error sending message. Please try again."
+  },
+  "fontsExplorer": {
+    "title": "Fonts Explorer",
+    "subtitle": "Explore over 1500 Google Fonts. Filter, preview and export to your projects.",
+    "searchPlaceholder": "Search fonts...",
+    "filters": "Filters",
+    "category": "Category",
+    "sortBy": "Sort by",
+    "previewText": "Preview Text",
+    "fontSize": "Font Size",
+    "loading": "Loading fonts...",
+    "error": "Error loading fonts",
+    "tryAgain": "Try again",
+    "noResults": "No fonts found with the selected filters.",
+    "viewDetails": "View details",
+    "weights": "Available Weights",
+    "howToUse": "How to use",
+    "viewOnGoogle": "View on Google Fonts",
+    "styles": "styles",
+    "fonts": "fonts"
   },
   "filters": {
     "popular": "Popular",

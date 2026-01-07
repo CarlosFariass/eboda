@@ -338,8 +338,8 @@ export default function GuiaCoresPage() {
                 { color: '#FACC15', name: t('yellow'), emotions: t('yellowEmotions'), brands: t('yellowBrands'), use: t('yellowUse') },
                 { color: '#22C55E', name: t('green'), emotions: t('greenEmotions'), brands: t('greenBrands'), use: t('greenUse') },
                 { color: '#3B82F6', name: t('blue'), emotions: t('blueEmotions'), brands: t('blueBrands'), use: t('blueUse') },
-                { color: '#A855F7', name: t('amber'), emotions: t('amberEmotions'), brands: t('amberBrands'), use: t('amberUse') },
-                { color: '#EC4899', name: t('amber'), emotions: t('amberEmotions'), brands: t('amberBrands'), use: t('amberUse') },
+                { color: '#A855F7', name: t('purple'), emotions: t('purpleEmotions'), brands: t('purpleBrands'), use: t('purpleUse') },
+                { color: '#EC4899', name: t('pink'), emotions: t('pinkEmotions'), brands: t('pinkBrands'), use: t('pinkUse') },
                 { color: '#1F2937', name: t('black'), emotions: t('blackEmotions'), brands: t('blackBrands'), use: t('blackUse') },
               ].map((item) => (
                 <div key={item.name} className="flex items-start gap-4 p-4 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl">

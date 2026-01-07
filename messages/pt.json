@@ -8,6 +8,7 @@
     "colors": "Cores",
     "palettes": "Paletas",
     "colorGuide": "Guia cores",
+    "fonts": "Fontes",
     "about": "Sobre",
     "terms": "Termos",
     "home": "Home",
@@ -29,6 +30,10 @@
     "gradientGenerator": {
       "name": "🌈 Gradient Generator",
       "description": "Crie gradientes personalizados"
+    },
+    "fontsExplorer": {
+      "name": "🔤 Fonts Explorer",
+      "description": "Explore fontes do Google Fonts"
     }
   },
   "auth": {
@@ -52,7 +57,9 @@
     "fillEmailPassword": "Preencha email e senha",
     "accountCreated": "Conta criada! Verifique seu email para confirmar.",
     "authError": "Erro ao autenticar",
-    "oauthNotConfigured": "OAuth não configurado. Use email/senha."
+    "oauthNotConfigured": "OAuth não configurado. Use email/senha.",
+    "orContinueWith": "ou continue com",
+    "continueWithGoogle": "Continuar com Google"
   },
   "footer": {
     "copyright": "© {year} EBODA"
@@ -67,8 +74,8 @@
   "home": {
     "title": "Sua Paleta de Cores",
     "subtitle": "Passe o mouse para ver os códigos, clique para ver combinações",
-    "insertImage": "Insira uma imagem",
-    "insertImageDesc": "Veja todas as cores que complementam a sua imagem e crie paletas que combinam",
+    "insertFont": "Explorador de Fontes",
+    "insertFontDesc": "Explore mais de 1500 fontes do Google Fonts. Filtre, visualize e exporte para seus projetos.",
     "multipleExport": "Exportação Múltipla",
     "multipleExportDesc": "Exporte para CSS, SCSS, JS, JSON e Figma com um clique",
     "smartCombinations": "Combinações Inteligentes",
@@ -410,6 +417,26 @@
     "successMessage": "Obrigado pelo contato. Retornaremos em breve.",
     "sendAnother": "Enviar Outra Mensagem",
     "errorMessage": "Erro ao enviar mensagem. Tente novamente."
+  },
+  "fontsExplorer": {
+    "title": "Explorador de Fontes",
+    "subtitle": "Explore mais de 1500 fontes do Google Fonts. Filtre, visualize e exporte para seus projetos.",
+    "searchPlaceholder": "Buscar fontes...",
+    "filters": "Filtros",
+    "category": "Categoria",
+    "sortBy": "Ordenar por",
+    "previewText": "Texto de Preview",
+    "fontSize": "Tamanho da Fonte",
+    "loading": "Carregando fontes...",
+    "error": "Erro ao carregar fontes",
+    "tryAgain": "Tentar novamente",
+    "noResults": "Nenhuma fonte encontrada com os filtros selecionados.",
+    "viewDetails": "Ver detalhes",
+    "weights": "Pesos Disponíveis",
+    "howToUse": "Como usar",
+    "viewOnGoogle": "Ver no Google Fonts",
+    "styles": "estilos",
+    "fonts": "fontes"
   },
   "filters": {
     "popular": "Popular",

@@ -5,6 +5,8 @@ import PaletteCard from '@/components/PaletteCard';
 import { Search, Filter } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 import { useTranslations } from 'next-intl';
+import { useAuth } from '@/contexts/AuthContext';
+import { getUserLikedIds, LIKE_TYPES } from '@/lib/likes';
 
 // Inicializa o cliente Supabase
 const supabase = createClient(
@@ -73,10 +75,10 @@ const FILTER_OPTIONS = [
   { id: 'ui', label: 'UI Design', icon: '🖥️' },
   
   // Cores Dominantes
-  { id: 'amber', label: 'Rosa', icon: '🌸' },
+  { id: 'pink', label: 'Rosa', icon: '🌸' },
   { id: 'blue', label: 'Azul', icon: '🔵' },
   { id: 'green', label: 'Verde', icon: '🟢' },
-  { id: 'amber', label: 'Roxo', icon: '🟣' },
+  { id: 'purple', label: 'Roxo', icon: '🟣' },
   { id: 'orange', label: 'Laranja', icon: '🟠' },
   { id: 'red', label: 'Vermelho', icon: '🔴' },
   { id: 'yellow', label: 'Amarelo', icon: '🟡' },
@@ -95,12 +97,27 @@ export default function PalettesPage() {
   const t = useTranslations('palettes');
   const tCommon = useTranslations('common');
   const tFilters = useTranslations('filters');
+  const { user } = useAuth();
   const [palettes, setPalettes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('popular');
   const [totalPalettes, setTotalPalettes] = useState(0);
+  const [likedPaletteIds, setLikedPaletteIds] = useState(new Set());
+
+  // Carregar IDs de paletas curtidas pelo usuário
+  useEffect(() => {
+    const loadLikedIds = async () => {
+      if (user) {
+        const likedIds = await getUserLikedIds(user.id, LIKE_TYPES.PALETTE);
+        setLikedPaletteIds(likedIds);
+      } else {
+        setLikedPaletteIds(new Set());
+      }
+    };
+    loadLikedIds();
+  }, [user]);
 
   // Função para buscar dados do Supabase com filtros e ordenação
   const fetchPalettes = useCallback(async () => {
@@ -272,7 +289,11 @@ export default function PalettesPage() {
         {!loading && palettes.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {palettes.map((palette) => (
-              <PaletteCard key={palette.id} palette={palette} />
+              <PaletteCard 
+                key={palette.id} 
+                palette={palette} 
+                initialLiked={likedPaletteIds.has(String(palette.id))}
+              />
             ))}
           </div>
         ) : !loading && (

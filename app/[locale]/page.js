@@ -60,10 +60,10 @@ export default function App() {
                   <Sparkles className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-                  {t('insertImage')}
+                  {t('insertFont')}
                 </h3>
                 <p className="text-gray-600 dark:text-white/60">
-                  {t('insertImageDesc')}
+                  {t('insertFontDesc')}
                 </p>
               </div>
             </div>
