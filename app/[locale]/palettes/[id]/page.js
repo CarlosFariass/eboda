@@ -192,6 +192,22 @@ export default function PaletteDetailPage({ params }) {
                 </span>
               ))}
             </div>
+
+            {/* Estatísticas */}
+            <div className="grid grid-cols-3 gap-4 mb-6">
+              <div className="bg-white dark:bg-white/5 rounded-lg p-4 border border-gray-200 dark:border-white/10">
+                <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">Visualizações</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">{palette.views || 0}</p>
+              </div>
+              <div className="bg-white dark:bg-white/5 rounded-lg p-4 border border-gray-200 dark:border-white/10">
+                <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">Curtidas</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">{palette.likes || 0}</p>
+              </div>
+              <div className="bg-white dark:bg-white/5 rounded-lg p-4 border border-gray-200 dark:border-white/10">
+                <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">Criador</p>
+                <p className="text-lg font-bold text-gray-900 dark:text-white">{palette.creator || 'Comunidade'}</p>
+              </div>
+            </div>
           </div>
 
           {/* Ações Laterais */}
@@ -217,7 +233,7 @@ export default function PaletteDetailPage({ params }) {
             </button>
 
             <button
-              onClick={handleShare}
+              onClick={() => shareOnSocial('twitter')}
               className="w-full py-3 bg-white dark:bg-white/5 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-white/10 transition-all flex items-center justify-center gap-2 border border-gray-200 dark:border-white/10"
             >
               <Share2 size={20} />

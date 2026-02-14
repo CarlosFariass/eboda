@@ -892,11 +892,6 @@ const font = ${font.family.replace(/ /g, '_')}({ subsets: ['latin'] });`}
       {selectedFont && (
         <FontDetailModal font={selectedFont} onClose={() => setSelectedFont(null)} />
       )}
-
-      {/* Modal de Autenticação */}
-      {showAuthModal && (
-        <AuthModal onClose={() => setShowAuthModal(false)} />
-      )}
     </div>
   );
 }

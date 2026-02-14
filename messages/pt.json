@@ -57,9 +57,7 @@
     "fillEmailPassword": "Preencha email e senha",
     "accountCreated": "Conta criada! Verifique seu email para confirmar.",
     "authError": "Erro ao autenticar",
-    "oauthNotConfigured": "OAuth não configurado. Use email/senha.",
-    "orContinueWith": "ou continue com",
-    "continueWithGoogle": "Continuar com Google"
+    "oauthNotConfigured": "OAuth não configurado. Use email/senha."
   },
   "footer": {
     "copyright": "© {year} EBODA"

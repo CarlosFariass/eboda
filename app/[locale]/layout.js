@@ -102,15 +102,15 @@ export default async function RootLayout({ children, params }) {
       <body className={inter.className}>
         <NextIntlClientProvider locale={params.locale} messages={messages}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-            <AuthProvider>
-              <HeaderWrapper />
+            
+            <HeaderWrapper />
 
-              <main className="min-h-screen">
-                {children}
-              </main>
+            <main className="min-h-screen">
+              {children}
+            </main>
 
-              <Footer />
-            </AuthProvider>
+            <Footer />
+
             <Analytics />
 
           </ThemeProvider>

@@ -242,7 +242,14 @@ const Header = ({ user, onLogin, onLogout }) => {
                     >
                       {t('tools.gradientGenerator.name')}
                     </Link>
-                    </div>
+                    <Link
+                      href="/tools/fonts"
+                      onClick={handleNavClick}
+                      className="block px-3 py-2 text-sm text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded transition-colors"
+                    >
+                      {t('tools.fontsExplorer.name')}
+                    </Link>
+                  </div>
                 )}
               </div>
 
@@ -267,13 +274,6 @@ const Header = ({ user, onLogin, onLogout }) => {
                 className="block px-3 py-2 rounded-lg text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
               >
                 {t('nav.colorGuide')}
-              </Link>
-              <Link
-                href="/tools/fonts"
-                onClick={handleNavClick}
-                className="block px-3 py-2 rounded-lg text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
-              >
-                {t('nav.fonts')}
               </Link>
               
               {/* Sobre - Mobile Only (hidden in footer on mobile) */}
