@@ -55,23 +55,39 @@ export default function RemoveBackground() {
     try {
       setProgress(20);
 
-      // Importar dinamicamente a biblioteca de remoção de background
-      const { removeBackground } = await import('@imgly/background-removal');
-      
+      // Enviar para API do Remove.bg via nossa rota
+      const formData = new FormData();
+      formData.append('image', file);
+
       setProgress(40);
 
-      // Processar a imagem
-      const blob = await removeBackground(file, {
-        progress: (key, current, total) => {
-          const progressPercent = Math.round((current / total) * 50) + 40;
-          setProgress(Math.min(progressPercent, 90));
-        },
+      const response = await fetch('/api/remove-bg', {
+        method: 'POST',
+        body: formData,
       });
 
-      setProgress(95);
+      setProgress(70);
 
-      // Converter blob para URL
+      if (!response.ok) {
+        const errorData = await response.json();
+        
+        if (response.status === 402) {
+          setError('Limite de créditos excedido. Tente novamente mais tarde.');
+        } else if (response.status === 403) {
+          setError('Serviço temporariamente indisponível.');
+        } else {
+          setError(errorData.error || t('processingError'));
+        }
+        setIsProcessing(false);
+        return;
+      }
+
+      setProgress(90);
+
+      // Converter resposta para blob e criar URL
+      const blob = await response.blob();
       const url = URL.createObjectURL(blob);
+      
       setProcessedImage(url);
       setProgress(100);
 

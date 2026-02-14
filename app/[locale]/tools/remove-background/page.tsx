@@ -1,35 +1,19 @@
-import React from 'react';
-import RemoveBackground from '@/components/RemoveBackground';
+'use client';
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
-  const locale = params.locale;
-  
-  return {
-    title: locale === 'pt' 
-      ? 'Remover Fundo de Imagem Online Grátis | EBODA'
-      : 'Remove Image Background Online Free | EBODA',
-    description: locale === 'pt'
-      ? 'Remova o fundo de qualquer imagem automaticamente com IA. Ferramenta gratuita, sem cadastro. Baixe sua imagem PNG transparente em segundos.'
-      : 'Remove background from any image automatically with AI. Free tool, no signup required. Download your transparent PNG image in seconds.',
-    keywords: ['remove background', 'remover fundo', 'background remover', 'transparent png', 'imagem sem fundo', 'remove bg', 'AI background removal'],
-    openGraph: {
-      title: locale === 'pt' 
-        ? 'Remover Fundo de Imagem | EBODA'
-        : 'Remove Image Background | EBODA',
-      description: locale === 'pt'
-        ? 'Remova o fundo de qualquer imagem automaticamente com IA. Gratuito e sem cadastro.'
-        : 'Remove background from any image automatically with AI. Free and no signup.',
-      type: 'website',
-    },
-    alternates: {
-      canonical: `/${locale}/tools/remove-background`,
-      languages: {
-        'pt-BR': '/pt/tools/remove-background',
-        'en-US': '/en/tools/remove-background',
-      },
-    },
-  };
-}
+import React from 'react';
+import dynamic from 'next/dynamic';
+
+const RemoveBackground = dynamic(() => import('@/components/RemoveBackground'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+        <p className="text-gray-600 dark:text-white/60">Carregando...</p>
+      </div>
+    </div>
+  ),
+});
 
 export default function RemoveBackgroundPage() {
   return (
