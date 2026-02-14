@@ -34,7 +34,34 @@
     "fontsExplorer": {
       "name": "🔤 Fonts Explorer",
       "description": "Explore fontes do Google Fonts"
+    },
+    "removeBackground": {
+      "name": "✨ Remove Background",
+      "description": "Remova o fundo de imagens"
     }
+  },
+  "removeBackground": {
+    "badge": "Powered by AI",
+    "title": "Remover Fundo de Imagem",
+    "subtitle": "Remova o fundo de qualquer imagem automaticamente com inteligência artificial. Gratuito, sem cadastro e sem marca d'água.",
+    "dropImage": "Arraste sua imagem aqui",
+    "orClick": "ou clique para selecionar",
+    "supportedFormats": "PNG, JPG, JPEG, WebP • Máximo 10MB",
+    "invalidFormat": "Formato de arquivo inválido. Use PNG, JPG ou WebP.",
+    "fileTooLarge": "Arquivo muito grande. Máximo permitido: 10MB.",
+    "processing": "Removendo fundo...",
+    "processingError": "Erro ao processar a imagem. Tente novamente.",
+    "processingWait": "Aguardando processamento...",
+    "original": "Imagem Original",
+    "result": "Sem Fundo",
+    "download": "Baixar PNG",
+    "newImage": "Nova Imagem",
+    "feature1Title": "IA Avançada",
+    "feature1Desc": "Algoritmo de inteligência artificial que identifica e remove o fundo com precisão.",
+    "feature2Title": "Download Grátis",
+    "feature2Desc": "Baixe sua imagem em PNG transparente sem marca d'água e sem custos.",
+    "feature3Title": "100% Privado",
+    "feature3Desc": "Suas imagens são processadas localmente no navegador. Nada é enviado para servidores."
   },
   "auth": {
     "login": "Entrar",

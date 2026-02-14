@@ -95,6 +95,11 @@ export default async function RootLayout({ children, params }) {
     <html lang={params.locale} suppressHydrationWarning>
       <head>
         <meta name="google-adsense-account" content="ca-pub-2115500079864644" />
+        <script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2115500079864644"
+          crossOrigin="anonymous"
+        />
         <WebsiteJsonLd />
         <OrganizationJsonLd />
         <SoftwareApplicationJsonLd />

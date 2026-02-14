@@ -10,6 +10,7 @@ import ExportModal from '@/components/ExportModal';
 import FavoritesModal from '@/components/FavoritesModal';
 import FAQ from '@/components/FAQ';
 import Link from 'next/link';
+import GoogleAd from '@/components/GoogleAd';
 
 const DEFAULT_COLORS = [
   '#9333EA', '#EC4899', '#F59E0B', '#10B981', '#3B82F6', 
@@ -99,6 +100,11 @@ export default function App() {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Google Ad */}
+          <div className="mt-12 max-w-5xl mx-auto">
+            <GoogleAd adSlot="5443365802" />
           </div>
         </main>
 

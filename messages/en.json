@@ -34,7 +34,34 @@
     "fontsExplorer": {
       "name": "🔤 Fonts Explorer",
       "description": "Explore Google Fonts"
+    },
+    "removeBackground": {
+      "name": "✨ Remove Background",
+      "description": "Remove image background"
     }
+  },
+  "removeBackground": {
+    "badge": "Powered by AI",
+    "title": "Remove Image Background",
+    "subtitle": "Remove the background from any image automatically with artificial intelligence. Free, no signup, no watermark.",
+    "dropImage": "Drop your image here",
+    "orClick": "or click to select",
+    "supportedFormats": "PNG, JPG, JPEG, WebP • Max 10MB",
+    "invalidFormat": "Invalid file format. Use PNG, JPG or WebP.",
+    "fileTooLarge": "File too large. Maximum allowed: 10MB.",
+    "processing": "Removing background...",
+    "processingError": "Error processing image. Please try again.",
+    "processingWait": "Waiting for processing...",
+    "original": "Original Image",
+    "result": "No Background",
+    "download": "Download PNG",
+    "newImage": "New Image",
+    "feature1Title": "Advanced AI",
+    "feature1Desc": "Artificial intelligence algorithm that identifies and removes background with precision.",
+    "feature2Title": "Free Download",
+    "feature2Desc": "Download your transparent PNG image without watermark and without costs.",
+    "feature3Title": "100% Private",
+    "feature3Desc": "Your images are processed locally in your browser. Nothing is sent to servers."
   },
   "auth": {
     "login": "Sign In",
