@@ -27,7 +27,7 @@ export default function GoogleAd({
   }, []);
 
   return (
-    <div className={`google-ad-container ${className}`}>
+    <div className={`google-ad-container ${className} hidden`}>
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}
